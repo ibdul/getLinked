@@ -1,9 +1,47 @@
 /* import fonts */
-@import url("/fonts/clash-display/css/clash-display.css");
 @import url("https://fonts.googleapis.com/css2?family=Unica+One&display=swap");
-/* Unica One */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&family=Unica+One&display=swap");
+
+@font-face {
+  font-family: "clash display";
+  src: local("clash display bold"),
+    url("/fonts/clash-display/fonts/ClashDisplay-Variable.ttf")
+      format("truetype");
+}
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .heading-font {
+    @apply font-heading leading-tight;
+  }
+  .title-1 {
+    @apply heading-font font-bold text-[64px];
+  }
+  .heading-1 {
+    @apply heading-font font-bold text-[30px];
+  }
+  .heading-2 {
+    @apply heading-font font-bold;
+  }
+  .btn {
+    @apply bg-gradient-to-r from-pink-100 via-pink to-purple px-10 py-2 rounded-sm inline-block;
+  }
+
+  section {
+    @apply py-24;
+  }
+  /* forms */
+  label {
+    @apply text-sm;
+  }
+  input,
+  textarea {
+    @apply w-full bg-white/5 rounded-[4px] border-white border p-2 placeholder:text-sm;
+  }
+  input[type="checkbox"] {
+    @apply bg-transparent;
+  }
+}
