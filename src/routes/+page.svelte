@@ -97,9 +97,13 @@
 </svelte:head>
 
 <main class="divide-y divide-white/[18%]">
-  <section id="hero">
-    <div class="relative max-w-6xl container grid grid-cols-2 items-center">
-      <h2 class="absolute top-0 right-0 font-bold text-[24px] italic">
+  <section id="hero" class="max-lg:text-center">
+    <div
+      class="relative max-w-6xl container lg:grid grid-cols-2 items-center space-y-4"
+    >
+      <h2
+        class="lg:absolute top-0 right-0 font-bold text-[20px] lg:text-[24px] italic lg:px-4"
+      >
         Igniting a Revolution in <span class="relative">HR Innovation</span>
       </h2>
       <div class="space-y-8">
@@ -109,7 +113,7 @@
             <br />
             Hackathon <span class="text-pink">1.0</span>
           </h1>
-          <p class="max-w-md">
+          <p class="max-w-md max-lg:container max-lg:max-w-lg">
             Participate in getlinked tech Hackathon 2023 stand a chance to win a
             Big prize
           </p>
@@ -118,17 +122,17 @@
           <a href="/register" class="btn">Register</a>
         </p>
 
-        <p>
+        <p class="space-x-4">
           <span class="font-special text-[40px]">00</span>H
           <span class="font-special text-[40px]">00</span>M
           <span class="font-special text-[40px]">00</span>S
         </p>
       </div>
-      <div class="min-h-[80vh]" />
+      <div class="lg:min-h-[80vh]" />
     </div>
   </section>
   <section>
-    <div class="max-w-6xl container grid grid-cols-2">
+    <div class="max-w-6xl container lg:grid grid-cols-2 max-lg:text-center">
       <div />
       <div class="space-y-4">
         <h2 class="heading-1">
@@ -147,7 +151,7 @@
     </div>
   </section>
   <section>
-    <div class="max-w-6xl container grid grid-cols-2">
+    <div class="max-w-6xl container lg:grid grid-cols-2 max-lg:text-center">
       <div class="space-y-4">
         <h2 class="heading-1">
           Rules and
@@ -165,7 +169,7 @@
     </div>
   </section>
   <section>
-    <div class="max-w-6xl container grid grid-cols-2">
+    <div class="max-w-6xl container lg:grid grid-cols-2 max-lg:text-center">
       <div />
       <div class="space-y-8">
         <h2 class="heading-1">
@@ -190,9 +194,9 @@
     </div>
   </section>
   <section>
-    <div class="max-w-6xl container grid grid-cols-2">
-      <div>
-        <div class="space-y-4">
+    <div class="max-w-6xl container lg:grid grid-cols-2">
+      <div class="space-y-12">
+        <div class="space-y-4 max-lg:text-center">
           <h2 class="heading-1">
             Frequently Asked
             <span class="block text-purple">Questions</span>
@@ -276,7 +280,7 @@
     </div>
   </section>
   <section>
-    <div class="max-w-6xl container grid grid-cols-2">
+    <div class="max-w-6xl container lg:grid grid-cols-2 max-lg:text-center">
       <div class="space-y-8">
         <div class="space-y-2">
           <h2 class="heading-1">
@@ -300,7 +304,7 @@
             participating in our event, you consent to the practices described
             in this policy.
           </p>
-          <div class="space-y-4">
+          <div class="space-y-4 text-left">
             <div class="font-bold">
               <h3 class="text-pink">Licensing Policy</h3>
               <p>Here are terms of our Standard License:</p>
@@ -326,8 +330,8 @@
 </main>
 <footer class="bg-[#100B20] text-sm py-12">
   <div class="max-w-6xl container space-y-6">
-    <div class="grid grid-cols-2">
-      <div class="space-y-16">
+    <div class="max-lg:space-y-8 lg:grid grid-cols-2">
+      <div class="max-lg:space-y-8 space-y-16">
         <div class="space-y-2">
           <a href="/">
             <h2 class="text-[26px] heading-1">
@@ -345,7 +349,7 @@
           <li class="pl-4"><a href="#">Privacy Policy</a></li>
         </ul>
       </div>
-      <div class="grid grid-cols-2">
+      <div class="max-lg:space-y-8 lg:grid grid-cols-2">
         <div class="space-y-4">
           <nav class="space-y-2">
             <h2 class="font-bold text-pink">Useful Links</h2>
@@ -374,6 +378,8 @@
         </nav>
       </div>
     </div>
-    <div class="text-center"><p>All rights reserved. © getlinked Ltd.</p></div>
+    <div class="text-center py-4">
+      <p>All rights reserved. © getlinked Ltd.</p>
+    </div>
   </div>
 </footer>

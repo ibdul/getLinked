@@ -18,7 +18,7 @@
     @apply font-heading leading-tight;
   }
   .title-1 {
-    @apply heading-font font-bold text-[64px];
+    @apply heading-font font-bold text-[50px] md:text-[64px];
   }
   .heading-1 {
     @apply heading-font font-bold text-[30px];
@@ -43,5 +43,9 @@
   }
   input[type="checkbox"] {
     @apply bg-transparent;
+  }
+
+  .container {
+    @apply max-xl:px-12;
   }
 }
