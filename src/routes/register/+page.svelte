@@ -1,5 +1,7 @@
 <script>
-  import Blob from "../../lib/components/Blob.svelte";
+  import Blob from "$lib/components/Blob.svelte";
+  import app_fetch from "$lib/app_fetch";
+  import { onMount } from "svelte";
 
   let is_success_modal_open = false;
 
@@ -10,8 +12,87 @@
     is_success_modal_open = false;
   }
 
-  function submitForm() {
-    openSuccessModal();
+  let form_data = {
+    email: "",
+    phone_number: "",
+    team_name: "",
+    group_size: "",
+    project_topic: "",
+    category: "",
+    privacy_poclicy_accepted: false,
+  };
+
+  let categories = [];
+
+  onMount(async () => {
+    // fetch categories
+    app_fetch("categories-list").then(async (response) => {
+      categories = await response.json();
+    });
+  });
+
+  let errors = [];
+  let busy = false;
+
+  async function submitForm() {
+    // reset states
+    errors = [];
+    busy = true;
+    // validate data
+    if (
+      form_data.email == "" ||
+      form_data.phone_number == "" ||
+      form_data.team_name == "" ||
+      form_data.group_size == "" ||
+      form_data.project_topic == "" ||
+      form_data.category == "" ||
+      !form_data.privacy_poclicy_accepted
+    ) {
+      errors = ["Please fill in information properly"];
+      return;
+    }
+    await app_fetch("registration", {
+      method: "POST",
+      body: JSON.stringify(form_data),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then(async (response) => {
+        await response
+          .json()
+          .then((result) => {
+            console.log(result);
+            if (result.id) {
+              openSuccessModal();
+              form_data = {
+                email: "",
+                phone_number: "",
+                team_name: "",
+                group_size: "",
+                project_topic: "",
+                category: "",
+                privacy_poclicy_accepted: false,
+              };
+            }
+            errors = [...errors, ...Object.values(result)];
+          })
+          .catch((err) => {
+            console.log(err);
+            errors = [
+              ...errors,
+              "Something went wrong, please try again later",
+            ];
+          });
+      })
+      .catch(async (err) => {
+        console.log("here");
+        console.log(err);
+        errors = [...errors, "Something went wrong, please try again later"];
+      })
+      .finally(() => {
+        busy = false;
+      });
   }
 </script>
 
@@ -35,7 +116,7 @@
       />
     </div>
     <div
-      class="space-y-8 max-w-lg container lg:bg-white/[3%] lg:px-10 lg:py-20 rounded-md lg:shadow-md"
+      class="space-y-8 max-w-lg container lg:bg-white/[3%] lg:px-10 py-6 lg:py-20 rounded-md lg:shadow-md"
     >
       <div class="space-y-6">
         <h2 class="heading-1 text-pink max-lg:hidden">Register</h2>
@@ -56,6 +137,7 @@
                 name="team's name"
                 placeholder="Enter the name of your group"
                 required
+                bind:value={form_data.team_name}
               />
             </label>
           </fieldset>
@@ -65,8 +147,9 @@
               <input
                 type="tel"
                 name="phone number"
-                required
                 placeholder="Enter your phone number"
+                required
+                bind:value={form_data.phone_number}
               />
             </label>
           </fieldset>
@@ -76,8 +159,9 @@
               <input
                 type="email"
                 name="email"
-                required
                 placeholder="Enter your email address"
+                required
+                bind:value={form_data.email}
               />
             </label>
           </fieldset>
@@ -87,8 +171,9 @@
               <input
                 type="text"
                 name="topic"
+                placeholder="Enter your group project topic"
                 required
-                placeholder="What is your group project topic"
+                bind:value={form_data.project_topic}
               />
             </label>
           </fieldset>
@@ -96,22 +181,31 @@
             <fieldset>
               <label>
                 Category
-                <input
-                  type="text"
+                <select
                   name="category"
+                  bind:value={form_data.category}
                   required
-                  placeholder="Select"
-                />
+                >
+                  <option value="" disabled selected>Select a category</option>
+                  {#each categories as category}
+                    <option value={category.id}>
+                      {category.name}
+                    </option>
+                  {/each}
+                </select>
               </label>
             </fieldset>
             <fieldset>
               <label>
                 Group Size
                 <input
-                  type="text"
+                  type="number"
                   name="group size"
+                  placeholder="Enter a group size"
+                  min="1"
+                  max="20"
                   required
-                  placeholder="Select"
+                  bind:value={form_data.group_size}
                 />
               </label>
             </fieldset>
@@ -121,24 +215,35 @@
           Please review your registration details before submitting
         </p>
         <p class="text-sm">
-          <label class="flex items-center gap-2">
+          <label class="flex items-center gap-2 relative">
             <input
               type="checkbox"
               name="terms and conditions"
               class="w-min"
               required
+              bind:value={form_data.privacy_poclicy_accepted}
             />
+            <span class="checkmark" />
             I agreed with the event terms and conditions and privacy policy
           </label>
         </p>
+        <ul class="text-center text-red-500 text-sm">
+          {#each errors as error}
+            <li>{error}</li>
+          {/each}
+        </ul>
         <div class="flex justify-center">
-          <button class="btn lg:w-full" type="submit">Submit</button>
+          {#if busy}
+            <button class="btn" disabled>Submitting...</button>
+          {:else}
+            <button class="btn" type="submit">Submit</button>
+          {/if}
         </div>
       </form>
     </div>
   </div>
 
-  <div class="absolute left-0 translate-x-[-30%]">
+  <div class="absolute left-0 translate-x-[-30%] pointer-events-none">
     <Blob />
   </div>
 </main>
