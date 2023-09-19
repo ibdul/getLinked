@@ -1,7 +1,7 @@
 <script>
   import Blob from "../../lib/components/Blob.svelte";
 
-  let is_success_modal_open = !false;
+  let is_success_modal_open = false;
 
   function openSuccessModal() {
     is_success_modal_open = true;
