@@ -399,9 +399,9 @@
       <div
         class="w-full border border-pink rounded-sm min-h-[100px] flex items-center justify-center p-10"
       >
-        <ul class="grid grid-cols-3 gap-6 items-center relative">
+        <ul class="grid grid-cols-3 gap-16 md:gap-20 items-center relative">
           {#each partners as partner}
-            <li>
+            <li class="flex items-center justify-center md:px-10">
               <img
                 src="/images/partners/{partner.title}.png"
                 alt="{partner.title} logo"
