@@ -14,6 +14,10 @@
 @tailwind utilities;
 
 @layer components {
+  .transition-default {
+    @apply transition-all duration-150 ease-in-out;
+  }
+
   .heading-font {
     @apply font-heading leading-tight;
   }
@@ -47,5 +51,17 @@
 
   .container {
     @apply max-xl:px-12;
+  }
+
+  .menu a {
+    @apply hover:text-7xl hover:pl-6 transition-default;
+  }
+
+  .menu li:hover a::after {
+    width: 100%;
+  }
+  .menu a::after {
+    content: "";
+    @apply block w-0 h-2 bg-pink transition-default duration-500;
   }
 }

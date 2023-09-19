@@ -1,5 +1,18 @@
 <script>
   import Blob from "../../lib/components/Blob.svelte";
+
+  let is_success_modal_open = !false;
+
+  function openSuccessModal() {
+    is_success_modal_open = true;
+  }
+  function closeSuccessModal() {
+    is_success_modal_open = false;
+  }
+
+  function submitForm() {
+    openSuccessModal();
+  }
 </script>
 
 <svelte:head>
@@ -33,7 +46,7 @@
       <h2 class="text-3xl max-lg:text-center lg:text-[20px]">
         CREATE YOUR ACCOUNT
       </h2>
-      <form class="space-y-4">
+      <form class="space-y-4" on:submit|preventDefault={submitForm}>
         <div class="grid lg:grid-cols-2 gap-4">
           <fieldset>
             <label>
@@ -119,7 +132,7 @@
           </label>
         </p>
         <div class="flex justify-center">
-          <button class="btn lg:w-full">Submit</button>
+          <button class="btn lg:w-full" type="submit">Submit</button>
         </div>
       </form>
     </div>
@@ -130,8 +143,16 @@
   </div>
 </main>
 
-<div class="relative bg-dark/90 min-h-screen">
-  <div class="absolute inset-0 h-screen text-center p-10">
+<div
+  class="fixed inset-0 z-10 min-h-screen {is_success_modal_open
+    ? 'flex'
+    : 'hidden'} items-center justify-center"
+>
+  <button
+    class="absolute inset-0 bg-dark/90 cursor-default"
+    on:click={closeSuccessModal}
+  />
+  <div class="relative text-center p-10">
     <div
       class="max-w-xl container border-pink border rounded-sm flex flex-col items-center gap-6 p-10"
     >
@@ -143,7 +164,7 @@
       <p class="text-sm">
         Yes, it was easy and you did it!<br />check your mail box for next step
       </p>
-      <button class="btn w-full">Back</button>
+      <button class="btn w-full" on:click={closeSuccessModal}>Back</button>
     </div>
   </div>
 </div>
