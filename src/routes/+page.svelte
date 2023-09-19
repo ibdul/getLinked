@@ -91,6 +91,27 @@
         "Teams get the opportunity to pitch their projects to judges. The winner of the hackathon will also be announced on this day",
     },
   ];
+
+  const partners = [
+    {
+      title: "liberty-assured",
+    },
+    {
+      title: "liberty-pay",
+    },
+    {
+      title: "win-wise",
+    },
+    {
+      title: "whispersms",
+    },
+    {
+      title: "paybox",
+    },
+    {
+      title: "vusual-plus",
+    },
+  ];
 </script>
 
 <svelte:head>
@@ -177,7 +198,7 @@
   </section>
   <section>
     <div
-      class="max-w-6xl container lg:grid grid-cols-2 max-lg:text-center items-center"
+      class="max-w-6xl container grid lg:grid-cols-2 max-lg:text-center items-center"
     >
       <div class="space-y-4">
         <h2 class="heading-1">
@@ -193,7 +214,7 @@
           change the world, that's what we're all about!
         </p>
       </div>
-      <div>
+      <div class="max-lg:order-first">
         <img src="/images/woman-with-tab.png" alt="woman with tablet" />
       </div>
     </div>
@@ -291,12 +312,21 @@
     </div>
   </section>
   <section>
-    <div class="max-w-6xl container grid grid-cols-2">
+    <div class="max-w-6xl container lg:grid grid-cols-2 max-lg:space-y-12">
+      <div class="text-center lg:hidden">
+        <h2 class="heading-1">
+          Prizes and
+          <span class="text-purple block">Rewards</span>
+        </h2>
+        <p>
+          Highlight of the prizes or rewards for winners and for participants.
+        </p>
+      </div>
       <div>
         <img src="/images/trophy.png" alt="trophy for winner" />
       </div>
       <div class="space-y-32">
-        <div>
+        <div class="max-lg:hidden">
           <h2 class="heading-1">
             Prizes and
             <span class="text-purple block">Rewards</span>
@@ -305,9 +335,11 @@
             Highlight of the prizes or rewards for winners and for participants.
           </p>
         </div>
-        <ul class="flex items-center gap-4 text-2xl font-bold text-center">
+        <ul
+          class="flex items-center justify-center gap-4 text-2xl font-bold text-center"
+        >
           <li
-            class="relative pt-20 pb-10 bg-pink/[12%] px-6 border border-pink rounded-md"
+            class="relative pt-20 pb-10 bg-pink/[12%] px-2 sm:px-6 border border-pink rounded-md"
           >
             <div
               class="absolute inset-x-0 top-0 translate-y-[-50%] flex justify-center"
@@ -323,7 +355,7 @@
             <p class="text-pink">N300,000</p>
           </li>
           <li
-            class="relative pt-32 pb-10 bg-purple/[12%] px-6 border border-purple rounded-md"
+            class="relative pt-32 pb-10 bg-purple/[12%] px-2 sm:px-6 border border-purple rounded-md"
           >
             <div
               class="absolute inset-x-0 top-0 translate-y-[-50%] flex justify-center"
@@ -335,7 +367,7 @@
             <p class="text-purple">N400,000</p>
           </li>
           <li
-            class="relative pt-20 pb-10 bg-pink/[12%] px-6 border border-pink rounded-md"
+            class="relative pt-20 pb-10 bg-pink/[12%] px-2 sm:px-6 border border-pink rounded-md"
           >
             <div
               class="absolute inset-x-0 top-0 translate-y-[-50%] flex justify-center"
@@ -364,12 +396,30 @@
         </p>
       </div>
       <div
-        class="w-full border border-pink rounded-sm min-h-[100px] flex items-center justify-center"
+        class="w-full border border-pink rounded-sm min-h-[100px] flex items-center justify-center p-10"
       >
-        <ul class="grid grid-cols-3 divide-x divide-y divide-pink gap-6">
-          {#each [1, 2, 3, 4, 5, 6] as _}
-            <li>hey</li>
+        <ul class="grid grid-cols-3 gap-6 items-center relative">
+          {#each partners as partner}
+            <li>
+              <img
+                src="/images/partners/{partner.title}.png"
+                alt="{partner.title} logo"
+              />
+            </li>
           {/each}
+          <div class="absolute inset-0">
+            <div class="absolute inset-0 flex items-center">
+              <span class="w-full h-1 bg-pink" />
+            </div>
+            <div class="absolute inset-0 flex items-center justify-around">
+              <span class="h-full w-1 bg-pink" />
+              <span class="h-full w-1 bg-pink" />
+            </div>
+            <div class="absolute inset-0 flex items-center justify-around">
+              <span class="rounded-full my-auto h-6 w-6 bg-dark" />
+              <span class="rounded-full my-auto h-6 w-6 bg-dark" />
+            </div>
+          </div>
         </ul>
       </div>
     </div>

@@ -80,7 +80,7 @@
       <div class="lg:hidden space-y-2 text-center">
         <h2 class="heading-2 text-pink">Share on</h2>
         <ul class="flex items-center justify-center gap-4">
-          {#each socials as social_link}
+          {#each $socials as social_link}
             <li>
               <a href={social_link.link} title="share on {social_link.title}">
                 <img

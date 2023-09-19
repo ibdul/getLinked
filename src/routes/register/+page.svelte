@@ -2,6 +2,10 @@
   import Blob from "../../lib/components/Blob.svelte";
 </script>
 
+<svelte:head>
+  <title>getLinked - Register for our hackathon</title>
+</svelte:head>
+
 <main class="min-h-[80vh] flex items-center justify-center">
   <div
     class="max-w-6xl container lg:grid grid-cols-2 space-y-4 lg:py-20 items-center"
@@ -12,18 +16,23 @@
 
     <div>
       <img
+        class="max-lg:mx-auto max-lg:w-[80%]"
         src="/images/3d-graphic-designer-showing-thumbs-up.png"
         alt="3d graphic designer showing thumbs up"
       />
     </div>
     <div
-      class="space-y-8 max-w-lg lg:max-lg:container lg:bg-white/[3%] lg:px-10 lg:py-20 rounded-md lg:shadow-md"
+      class="space-y-8 max-w-lg container lg:bg-white/[3%] lg:px-10 lg:py-20 rounded-md lg:shadow-md"
     >
       <div class="space-y-6">
         <h2 class="heading-1 text-pink max-lg:hidden">Register</h2>
-        <p class="text-sm">Be part of this movement 🚶🏾‍♂️🚶🏾‍♂️</p>
+        <p class="lg:text-sm max-lg:text-center">
+          Be part of this movement 🚶🏾‍♂️🚶🏾‍♂️
+        </p>
       </div>
-      <h2 class="font-[20px]">CREATE YOUR ACCOUNT</h2>
+      <h2 class="text-3xl max-lg:text-center lg:text-[20px]">
+        CREATE YOUR ACCOUNT
+      </h2>
       <form class="space-y-4">
         <div class="grid lg:grid-cols-2 gap-4">
           <fieldset>
@@ -122,7 +131,7 @@
 </main>
 
 <div class="relative bg-dark/90 min-h-screen">
-  <div class="absolute inset-0 h-screen text-center">
+  <div class="absolute inset-0 h-screen text-center p-10">
     <div
       class="max-w-xl container border-pink border rounded-sm flex flex-col items-center gap-6 p-10"
     >
