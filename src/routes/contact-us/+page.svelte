@@ -1,5 +1,6 @@
 <script>
   import Blob from "../../lib/components/Blob.svelte";
+  import socials from "$lib/socials";
 </script>
 
 <svelte:head>
@@ -29,9 +30,16 @@
       </ul>
       <div class="space-y-2">
         <h2 class="heading-2 text-pink">Share on</h2>
-        <ul class="flex items-center gap-2">
-          {#each [1, 2, 3, 4] as _}
-            <li class="bg-white w-4 h-4" />
+        <ul class="flex items-center gap-4">
+          {#each $socials as social_link}
+            <li>
+              <a href={social_link.link} title="share on {social_link.title}">
+                <img
+                  src="/images/socials/{social_link.title}.svg"
+                  alt="{social_link.title} icon"
+                />
+              </a>
+            </li>
           {/each}
         </ul>
       </div>
@@ -71,9 +79,16 @@
       </form>
       <div class="lg:hidden space-y-2 text-center">
         <h2 class="heading-2 text-pink">Share on</h2>
-        <ul class="flex items-center justify-center gap-2">
-          {#each [1, 2, 3, 4] as _}
-            <li class="bg-white w-4 h-4" />
+        <ul class="flex items-center justify-center gap-4">
+          {#each socials as social_link}
+            <li>
+              <a href={social_link.link} title="share on {social_link.title}">
+                <img
+                  src="/images/socials/{social_link.title}.svg"
+                  alt="{social_link.title} icon"
+                />
+              </a>
+            </li>
           {/each}
         </ul>
       </div>

@@ -1,4 +1,5 @@
 <script>
+  import socials from "$lib/socials";
   const judging_criteria = [
     {
       title: "Innovation and Creativity",
@@ -104,14 +105,21 @@
       <h2
         class="lg:absolute top-0 right-0 font-bold text-[20px] lg:text-[24px] italic lg:px-4"
       >
-        Igniting a Revolution in <span class="relative">HR Innovation</span>
+        Igniting a Revolution in <span class="relative"
+          >HR Innovation <img
+            src="/images/stroke.svg"
+            class="absolute inset-x-0 -bottom-4"
+          /></span
+        >
       </h2>
       <div class="space-y-8">
         <div class="space-y-4">
           <h1 class="title-1">
             getlinked Tech
             <br />
-            Hackathon <span class="text-pink">1.0</span>
+            Hackathon <span class="text-pink">1.0</span><span
+              class="text-[30px]">🔗🔥</span
+            >
           </h1>
           <p class="max-w-md max-lg:container max-lg:max-w-lg">
             Participate in getlinked tech Hackathon 2023 stand a chance to win a
@@ -128,12 +136,29 @@
           <span class="font-special text-[40px]">00</span>S
         </p>
       </div>
-      <div class="lg:min-h-[80vh]" />
+      <div class="lg:min-h-[80vh] relative">
+        <img
+          src="/images/hero-stary-field.png"
+          alt="hero stary field"
+          class="absolute inset-x-0"
+        />
+        <img
+          src="/images/man-wearing-smart-glasses-touching-virtual-screen.png"
+          alt="man wearing smart glasses touching virtual screen"
+        />
+      </div>
     </div>
   </section>
   <section>
-    <div class="max-w-6xl container lg:grid grid-cols-2 max-lg:text-center">
-      <div />
+    <div
+      class="max-w-6xl container lg:grid grid-cols-2 max-lg:text-center items-center"
+    >
+      <div>
+        <img
+          src="/images/the-big-idea.png"
+          alt="infographic showing different elements and how they link together to form an idea"
+        />
+      </div>
       <div class="space-y-4">
         <h2 class="heading-1">
           Introduction to getlinked
@@ -151,7 +176,9 @@
     </div>
   </section>
   <section>
-    <div class="max-w-6xl container lg:grid grid-cols-2 max-lg:text-center">
+    <div
+      class="max-w-6xl container lg:grid grid-cols-2 max-lg:text-center items-center"
+    >
       <div class="space-y-4">
         <h2 class="heading-1">
           Rules and
@@ -166,11 +193,21 @@
           change the world, that's what we're all about!
         </p>
       </div>
+      <div>
+        <img src="/images/woman-with-tab.png" alt="woman with tablet" />
+      </div>
     </div>
   </section>
   <section>
-    <div class="max-w-6xl container lg:grid grid-cols-2 max-lg:text-center">
-      <div />
+    <div
+      class="max-w-6xl container lg:grid grid-cols-2 max-lg:text-center items-center"
+    >
+      <div>
+        <img
+          src="/images/two-people-doing-some-analysis.png"
+          alt="two people doing some analysis"
+        />
+      </div>
       <div class="space-y-8">
         <h2 class="heading-1">
           Judging Criteria
@@ -218,6 +255,12 @@
           {/each}
         </ul>
       </div>
+      <div>
+        <img
+          src="/images/man-thinking.png"
+          alt="man sitting on cloud and thinking"
+        />
+      </div>
     </div>
   </section>
   <section>
@@ -249,8 +292,10 @@
   </section>
   <section>
     <div class="max-w-6xl container grid grid-cols-2">
-      <div />
       <div>
+        <img src="/images/trophy.png" alt="trophy for winner" />
+      </div>
+      <div class="space-y-32">
         <div>
           <h2 class="heading-1">
             Prizes and
@@ -260,6 +305,52 @@
             Highlight of the prizes or rewards for winners and for participants.
           </p>
         </div>
+        <ul class="flex items-center gap-4 text-2xl font-bold text-center">
+          <li
+            class="relative pt-20 pb-10 bg-pink/[12%] px-6 border border-pink rounded-md"
+          >
+            <div
+              class="absolute inset-x-0 top-0 translate-y-[-50%] flex justify-center"
+            >
+              <img
+                src="/images/silver_medal.png"
+                alt="silver medal"
+                class="w-[70%]"
+              />
+            </div>
+            <h3>2nd</h3>
+            <p class="text-lg font-semibold">Place</p>
+            <p class="text-pink">N300,000</p>
+          </li>
+          <li
+            class="relative pt-32 pb-10 bg-purple/[12%] px-6 border border-purple rounded-md"
+          >
+            <div
+              class="absolute inset-x-0 top-0 translate-y-[-50%] flex justify-center"
+            >
+              <img src="/images/gold_medal.png" alt="gold medal" />
+            </div>
+            <h3>1st</h3>
+            <p class="text-lg font-semibold">Place</p>
+            <p class="text-purple">N400,000</p>
+          </li>
+          <li
+            class="relative pt-20 pb-10 bg-pink/[12%] px-6 border border-pink rounded-md"
+          >
+            <div
+              class="absolute inset-x-0 top-0 translate-y-[-50%] flex justify-center"
+            >
+              <img
+                src="/images/bronze_medal.png"
+                alt="bronze medal"
+                class="w-[70%]"
+              />
+            </div>
+            <h3>2nd</h3>
+            <p class="text-lg font-semibold">Place</p>
+            <p class="text-pink">N150,000</p>
+          </li>
+        </ul>
       </div>
     </div>
   </section>
@@ -275,7 +366,11 @@
       <div
         class="w-full border border-pink rounded-sm min-h-[100px] flex items-center justify-center"
       >
-        hello
+        <ul class="grid grid-cols-3 divide-x divide-y divide-pink gap-6">
+          {#each [1, 2, 3, 4, 5, 6] as _}
+            <li>hey</li>
+          {/each}
+        </ul>
       </div>
     </div>
   </section>
@@ -310,13 +405,27 @@
               <p>Here are terms of our Standard License:</p>
             </div>
             <ul class="space-y-4">
-              <li>
-                The Standard License grants you a non-exclusive right to
-                navigate and register for our event
+              <li class="flex items-start gap-4">
+                <img
+                  src="/images/privacy-item.svg"
+                  alt="check sign"
+                  class="py-1"
+                />
+                <p>
+                  The Standard License grants you a non-exclusive right to
+                  navigate and register for our event
+                </p>
               </li>
-              <li>
-                You are licensed to use the item available at any free source
-                sites, for your project developement
+              <li class="flex items-start gap-4">
+                <img
+                  src="/images/privacy-item.svg"
+                  alt="check sign"
+                  class="py-1"
+                />
+                <p>
+                  You are licensed to use the item available at any free source
+                  sites, for your project developement
+                </p>
               </li>
             </ul>
           </div>
@@ -324,6 +433,14 @@
             <a href="#" class="btn">Read More</a>
           </div>
         </div>
+      </div>
+      <div class="relative">
+        <img
+          src="/images/sheild-lock.png"
+          class="absolute inset-0"
+          alt="lock inside shield"
+        />
+        <img src="/images/man-lock.png" alt="man standing on lock" />
       </div>
     </div>
   </section>
@@ -363,8 +480,18 @@
           <div class="flex gap-4 items-center">
             <h2 class="font-bold text-pink">Follow us</h2>
             <ul class="flex items-center gap-2">
-              {#each [1, 2, 3, 4] as _}
-                <li class="bg-white w-4 h-4" />
+              {#each $socials as social_link}
+                <li>
+                  <a
+                    href={social_link.link}
+                    title="share on {social_link.title}"
+                  >
+                    <img
+                      src="/images/socials/{social_link.title}.svg"
+                      alt="{social_link.title} icon"
+                    />
+                  </a>
+                </li>
               {/each}
             </ul>
           </div>

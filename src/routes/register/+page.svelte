@@ -9,7 +9,13 @@
     <div class="hidden max-lg:block">
       <h2 class="heading-1 text-pink">Register</h2>
     </div>
-    <div />
+
+    <div>
+      <img
+        src="/images/3d-graphic-designer-showing-thumbs-up.png"
+        alt="3d graphic designer showing thumbs up"
+      />
+    </div>
     <div
       class="space-y-8 max-w-lg lg:max-lg:container lg:bg-white/[3%] lg:px-10 lg:py-20 rounded-md lg:shadow-md"
     >
@@ -114,3 +120,21 @@
     <Blob />
   </div>
 </main>
+
+<div class="relative bg-dark/90 min-h-screen">
+  <div class="absolute inset-0 h-screen text-center">
+    <div
+      class="max-w-xl container border-pink border rounded-sm flex flex-col items-center gap-6 p-10"
+    >
+      <img src="/images/congratulation.png" alt="boy jumping up in happiness" />
+      <h2 class="font-bold">
+        Congratulations
+        <span class="block">you have successfully Registered!</span>
+      </h2>
+      <p class="text-sm">
+        Yes, it was easy and you did it!<br />check your mail box for next step
+      </p>
+      <button class="btn w-full">Back</button>
+    </div>
+  </div>
+</div>
