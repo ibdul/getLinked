@@ -408,15 +408,19 @@
               />
             </li>
           {/each}
-          <div class="absolute inset-0">
+          <div class="absolute inset-0 pointer-events-none">
             <div class="absolute inset-0 flex items-center">
               <span class="w-full h-1 bg-pink" />
             </div>
-            <div class="absolute inset-0 flex items-center justify-around">
+            <div
+              class="px-10 absolute inset-0 flex items-center justify-around"
+            >
               <span class="h-full w-1 bg-pink" />
               <span class="h-full w-1 bg-pink" />
             </div>
-            <div class="absolute inset-0 flex items-center justify-around">
+            <div
+              class="px-10 absolute inset-0 flex items-center justify-around"
+            >
               <span class="rounded-full my-auto h-6 w-6 bg-dark" />
               <span class="rounded-full my-auto h-6 w-6 bg-dark" />
             </div>
