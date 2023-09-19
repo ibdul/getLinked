@@ -130,6 +130,7 @@
           >HR Innovation <img
             src="/images/stroke.svg"
             class="absolute inset-x-0 -bottom-4"
+            alt="stroke"
           /></span
         >
       </h2>
@@ -251,7 +252,7 @@
       </div>
     </div>
   </section>
-  <section>
+  <section id="faqs">
     <div class="max-w-6xl container lg:grid grid-cols-2">
       <div class="space-y-12">
         <div class="space-y-4 max-lg:text-center">
@@ -284,7 +285,7 @@
       </div>
     </div>
   </section>
-  <section>
+  <section id="timeline">
     <div class="max-w-6xl container">
       <div class="text-center max-w-sm container">
         <h2 class="heading-1">Timeline</h2>
@@ -521,10 +522,10 @@
           <nav class="space-y-2">
             <h2 class="font-bold text-pink">Useful Links</h2>
             <ul class="space-y-2">
-              <li><a href="$">Overview</a></li>
-              <li><a href="$">Timeline</a></li>
-              <li><a href="$">FAQs</a></li>
-              <li><a href="$">Register</a></li>
+              <li><a href="/#top">Overview</a></li>
+              <li><a href="/#timeline">Timeline</a></li>
+              <li><a href="/#faqs">FAQs</a></li>
+              <li><a href="/register">Register</a></li>
             </ul>
           </nav>
           <div class="flex gap-4 items-center">

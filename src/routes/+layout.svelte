@@ -49,7 +49,7 @@
       <nav class="max-md:hidden flex gap-10 items-center">
         <ul class="flex items-center gap-8">
           <li><a href="/#timeline">Timeline</a></li>
-          <li><a href="/#overview">Overview</a></li>
+          <li><a href="/#top">Overview</a></li>
           <li><a href="/#faqs">FAQs</a></li>
           <li><a href="/contact-us">Contact</a></li>
         </ul>

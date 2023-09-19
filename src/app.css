@@ -123,3 +123,7 @@
     @apply block w-0 h-2 bg-pink transition-default duration-500;
   }
 }
+
+html {
+  scroll-behavior: smooth;
+}
