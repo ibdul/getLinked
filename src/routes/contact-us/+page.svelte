@@ -1,5 +1,4 @@
 <script>
-  import Blob from "$lib/components/Blob.svelte";
   import socials from "$lib/socials";
   import app_fetch from "$lib/app_fetch";
 
@@ -65,7 +64,7 @@
             <span class="block">Lagos State</span>
           </p>
         </li>
-        <li><p>Call Us : 07067981819</p></li>
+        <li><p>Call Us : <a href="tel:07067981819">07067981819</a></p></li>
         <li>
           <p>
             we are open from Monday-Friday <span class="block"
@@ -178,9 +177,5 @@
         </ul>
       </div>
     </div>
-  </div>
-
-  <div class="absolute left-0 translate-x-[-30%] pointer-events-none">
-    <Blob />
   </div>
 </main>

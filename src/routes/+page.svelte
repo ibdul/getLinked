@@ -171,9 +171,9 @@
       </div>
     </div>
   </section>
-  <section>
+  <section id="overview">
     <div
-      class="max-w-6xl container lg:grid grid-cols-2 max-lg:text-center items-center"
+      class="max-w-6xl container grid lg:grid-cols-2 max-lg:gap-6 max-lg:text-center items-center"
     >
       <div>
         <img
@@ -410,13 +410,13 @@
           {/each}
           <div class="absolute inset-0 pointer-events-none">
             <div class="absolute inset-0 flex items-center">
-              <span class="w-full h-1 bg-pink" />
+              <span class="w-full h-[2px] bg-pink" />
             </div>
             <div
               class="px-10 absolute inset-0 flex items-center justify-around"
             >
-              <span class="h-full w-1 bg-pink" />
-              <span class="h-full w-1 bg-pink" />
+              <span class="h-full w-[2px] bg-pink" />
+              <span class="h-full w-[2px] bg-pink" />
             </div>
             <div
               class="px-10 absolute inset-0 flex items-center justify-around"
@@ -526,7 +526,7 @@
           <nav class="space-y-2">
             <h2 class="font-bold text-pink">Useful Links</h2>
             <ul class="space-y-2">
-              <li><a href="/#top">Overview</a></li>
+              <li><a href="/#overview">Overview</a></li>
               <li><a href="/#timeline">Timeline</a></li>
               <li><a href="/#faqs">FAQs</a></li>
               <li><a href="/register">Register</a></li>
@@ -554,7 +554,7 @@
         <nav class="space-y-2">
           <h2 class="font-bold text-pink">Contact Us</h2>
           <ul class="space-y-2">
-            <li><a href="#">+234 679 81819</a></li>
+            <li><a href="tel:+234 679 81819">+234 679 81819</a></li>
             <li><a href="#">27,Alara Street Yaba 100012 Lagos State</a></li>
           </ul>
         </nav>

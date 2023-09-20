@@ -1,5 +1,4 @@
 <script>
-  import Blob from "$lib/components/Blob.svelte";
   import app_fetch from "$lib/app_fetch";
   import { onMount } from "svelte";
 
@@ -116,7 +115,7 @@
       />
     </div>
     <div
-      class="space-y-8 max-w-lg container lg:bg-white/[3%] lg:px-10 py-6 lg:py-20 rounded-md lg:shadow-md"
+      class="space-y-8 max-w-lg container lg:bg-white/[3%] lg:px-10 py-6 lg:py-20 rounded-md lg:shadow-md backdrop-filter backdrop-blur-sm border border-white/[1%]"
     >
       <div class="space-y-6">
         <h2 class="heading-1 text-pink max-lg:hidden">Register</h2>
@@ -241,10 +240,6 @@
         </div>
       </form>
     </div>
-  </div>
-
-  <div class="absolute left-0 translate-x-[-30%] pointer-events-none">
-    <Blob />
   </div>
 </main>
 
