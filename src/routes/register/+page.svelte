@@ -1,14 +1,15 @@
 <script>
   import app_fetch from "$lib/app_fetch";
+  import { gsap } from "gsap";
   import { onMount } from "svelte";
 
-  let is_success_modal_open = false;
+  const modal_timeline = new gsap.timeline({ paused: true, reversed: true });
 
   function openSuccessModal() {
-    is_success_modal_open = true;
+    modal_timeline.play();
   }
   function closeSuccessModal() {
-    is_success_modal_open = false;
+    modal_timeline.reverse();
   }
 
   let form_data = {
@@ -28,6 +29,42 @@
     app_fetch("categories-list").then(async (response) => {
       categories = await response.json();
     });
+
+    modal_timeline
+      .to(".page_wrapper", {
+        duration: 0.4,
+        scale: 0.9,
+        opacity: 0.5,
+        filter: "blur(8px)",
+      })
+      .from(
+        ".modal_wrapper",
+        { duration: 0.5, autoAlpha: 0, ease: "Power4.easeOut" },
+        "-=0.5"
+      )
+      .from(
+        ".modal_body",
+        {
+          duration: 0.5,
+          y: 140,
+          scale: 2,
+          filter: "blur(4px)",
+          ease: "Power4.easeOut",
+        },
+        "-=0.5"
+      )
+      .from(
+        ".modal_element",
+        {
+          duration: 0.2,
+          y: 40,
+          stagger: 0.1,
+          opacity: 0,
+          scale: 2,
+          ease: "Power4.easeOut",
+        },
+        "-=0.6"
+      );
   });
 
   let errors = [];
@@ -99,7 +136,7 @@
   <title>getLinked - Register for our hackathon</title>
 </svelte:head>
 
-<main class="min-h-[80vh] flex items-center justify-center">
+<main class="page_wrapper min-h-[80vh] flex items-center justify-center">
   <div
     class="max-w-6xl container lg:grid grid-cols-2 space-y-4 lg:py-20 items-center"
   >
@@ -223,6 +260,7 @@
               bind:value={form_data.privacy_poclicy_accepted}
             />
             <span class="checkmark" />
+            <span class="checkmark_ghost" />
             I agreed with the event terms and conditions and privacy policy
           </label>
         </p>
@@ -244,27 +282,31 @@
 </main>
 
 <div
-  class="fixed inset-0 z-10 min-h-screen {is_success_modal_open
-    ? 'flex'
-    : 'hidden'} items-center justify-center"
+  class="modal_wrapper invisible fixed inset-0 z-10 min-h-screen items-center justify-center"
 >
   <button
     class="absolute inset-0 bg-dark/90 cursor-default"
     on:click={closeSuccessModal}
   />
-  <div class="relative text-center p-10">
+  <div class="relative w-max container text-center p-10">
     <div
-      class="max-w-xl container border-pink border rounded-sm flex flex-col items-center gap-6 p-10"
+      class="modal_body max-w-xl container border-pink border rounded-sm flex flex-col items-center gap-6 p-10"
     >
-      <img src="/images/congratulation.png" alt="boy jumping up in happiness" />
-      <h2 class="font-bold">
+      <img
+        class="modal_element"
+        src="/images/congratulation.png"
+        alt="boy jumping up in happiness"
+      />
+      <h2 class="modal_element font-bold">
         Congratulations
         <span class="block">you have successfully Registered!</span>
       </h2>
-      <p class="text-sm">
+      <p class="modal_element text-sm">
         Yes, it was easy and you did it!<br />check your mail box for next step
       </p>
-      <button class="btn w-full" on:click={closeSuccessModal}>Back</button>
+      <button class="modal_element btn w-full" on:click={closeSuccessModal}
+        >Back</button
+      >
     </div>
   </div>
 </div>
