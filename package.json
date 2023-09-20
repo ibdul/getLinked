@@ -20,6 +20,7 @@
 	"dependencies": {
 		"gsap": "^3.12.2",
 		"parallax-js": "^3.1.0",
+		"split-text-js": "^1.0.3",
 		"svelte-countup": "^0.2.6"
 	}
 }
