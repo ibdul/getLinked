@@ -6,19 +6,67 @@
   import StarrySky from "$lib/components/StarrySky.svelte";
   import Blob from "../lib/components/Blob.svelte";
   import AnimatedStarField from "../lib/components/AnimatedStarField.svelte";
+  import { gsap } from "gsap";
+  import { onMount } from "svelte";
 
-  let menu_open = false;
+  const menu_open_timeline = gsap.timeline({ paused: true });
+  const menu_close_timeline = gsap.timeline({ paused: true });
+
   function openMenu() {
-    menu_open = true;
+    // menu_open = true;
+    if (menu_open_timeline.progress() < 1) {
+      menu_open_timeline.play();
+    } else {
+      menu_open_timeline.restart();
+    }
   }
   function closeMenu() {
-    menu_open = false;
+    if (menu_close_timeline.progress() < 1) {
+      menu_close_timeline.play();
+    } else {
+      menu_close_timeline.restart();
+    }
   }
+
+  onMount(() => {
+    gsap.set(".menu_close_btn", { y: "-120px", rotate: "-360" });
+    menu_open_timeline
+      .set(".menu_close_btn", { y: "-120px", rotate: "-360" })
+      .set(".menu", { y: 0 })
+      .to(".menu", { clipPath: "circle(150% at 100% 0)" })
+      .fromTo(
+        ".menu a",
+        { y: "50px", x: 0, opacity: 0 },
+        {
+          y: "0px",
+          opacity: 1,
+          stagger: { amount: 0.5 },
+        }
+      )
+      .to(".menu_close_btn", {
+        y: 0,
+        rotate: 0,
+        ease: "back",
+      });
+
+    menu_close_timeline
+      .to(".menu a", {
+        x: "-150px",
+        opacity: 0,
+        stagger: { amount: 0.5 },
+      })
+      .to(".menu", { clipPath: "circle(0% at 100% 0)" })
+      .set(".menu", { y: "100%" })
+      .to(".menu a", {
+        x: 0,
+      });
+  });
 </script>
 
 <Cursor />
-
-<div class="bg-dark text-white selection:bg-pink selection:text-dark">
+<div
+  class="layout_wrapper bg-dark text-white selection:bg-pink selection:text-dark"
+>
   <div
     class="min-h-screen fixed inset-0 overflow-hidden"
     style="
@@ -31,13 +79,13 @@
   <StarrySky />
 
   <div class="fixed inset-0 pointer-events-none">
-    <AnimatedBlobs />
+    <!-- <AnimatedBlobs /> -->
     <!-- {#each Array(6) as _, i}
       <Blob />
     {/each} -->
   </div>
   <div class="relative min-h-screen">
-    <div class="z-10">
+    <div class="z-10 -space-y-20">
       <StarrySky />
     </div>
     <header>
@@ -47,14 +95,14 @@
             get<span class="text-pink">linked</span>
           </h2>
         </a>
+        <!-- BASEN ON DRIBBBLE SHOT: https://dribbble.com/shots/2209627-UI8-Nav -->
+
         <button class="md:hidden" on:click={openMenu}><HamburgerIcon /></button>
         <div
-          class="menu bg-dark min-h-screen fixed inset-0 {menu_open
-            ? 'flex'
-            : 'hidden'} items-center z-10 px-10 text-5xl"
+          class="menu bg-dark min-h-screen fixed inset-0 flex items-center z-10 px-10 text-5xl"
         >
           <button
-            class="border rounded-full w-6 h-6 p-8 hover:p-10 hover:rotate-90 transition-default flex items-center justify-center absolute top-0 right-0 m-12"
+            class="menu_close_btn border rounded-full w-6 h-6 p-8 hover:p-10 hover:rotate-90 transition-default flex items-center justify-center absolute top-0 right-0 m-12"
             on:click={closeMenu}
           >
             &times;
@@ -94,3 +142,10 @@
     <slot />
   </div>
 </div>
+
+<style>
+  .menu {
+    transform: translateY(100%);
+    clip-path: circle(0% at 100% 0);
+  }
+</style>
