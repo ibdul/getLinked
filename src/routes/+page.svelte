@@ -1,5 +1,8 @@
 <script>
   import socials from "$lib/socials";
+  import Countdown from "../lib/components/Countdown.svelte";
+  import Typewriter from "../lib/components/Typewriter.svelte";
+  import Timeline from "../lib/components/Timeline.svelte";
   const judging_criteria = [
     {
       title: "Innovation and Creativity",
@@ -123,17 +126,13 @@
     <div
       class="relative max-w-6xl container lg:grid grid-cols-2 items-center space-y-4"
     >
-      <h2
-        class="lg:absolute top-0 right-0 font-bold text-[20px] lg:text-[24px] italic lg:px-4"
-      >
-        Igniting a Revolution in <span class="relative"
-          >HR Innovation <img
-            src="/images/stroke.svg"
-            class="absolute inset-x-0 -bottom-4"
-            alt="stroke"
-          /></span
+      <div class="lg:absolute -top-10 right-0">
+        <h2
+          class="font-bold text-[20px] lg:text-[24px] italic lg:px-4 relative"
         >
-      </h2>
+          <Typewriter message="Igniting a Revolution in HR Innovation" />
+        </h2>
+      </div>
       <div class="space-y-8">
         <div class="space-y-4">
           <h1 class="title-1">
@@ -151,6 +150,8 @@
         <p>
           <a href="/register" class="btn">Register</a>
         </p>
+
+        <Countdown />
 
         <p class="space-x-4">
           <span class="font-special text-[40px]">00</span>H
@@ -286,7 +287,7 @@
     </div>
   </section>
   <section id="timeline">
-    <div class="max-w-6xl container">
+    <div class="max-w-6xl container space-y-8">
       <div class="text-center max-w-sm container">
         <h2 class="heading-1">Timeline</h2>
         <p>
@@ -294,22 +295,7 @@
           event.
         </p>
       </div>
-      <ul class="space-y-8">
-        {#each timeline as { date, title, description }, index}
-          <li class="flex justify-between items-center">
-            <h3 class="heading-2 text-pink">{date}</h3>
-            <div
-              class="w-6 h-6 rounded-full bg-pink flex items-center justify-center"
-            >
-              {index + 1}
-            </div>
-            <div class="space-y-4 max-w-sm">
-              <h3 class="heading-2 text-pink">{title}</h3>
-              <p>{description}</p>
-            </div>
-          </li>
-        {/each}
-      </ul>
+      <Timeline data={timeline} />
     </div>
   </section>
   <section>

@@ -3,6 +3,9 @@
   import HamburgerIcon from "$lib/components/icons/HamburgerIcon.svelte";
   import AnimatedBlobs from "$lib/components/AnimatedBlobs.svelte";
   import Cursor from "$lib/components/Cursor.svelte";
+  import StarrySky from "$lib/components/StarrySky.svelte";
+  import Blob from "../lib/components/Blob.svelte";
+  import AnimatedStarField from "../lib/components/AnimatedStarField.svelte";
 
   let menu_open = false;
   function openMenu() {
@@ -16,10 +19,27 @@
 <Cursor />
 
 <div class="bg-dark text-white selection:bg-pink selection:text-dark">
+  <div
+    class="min-h-screen fixed inset-0 overflow-hidden"
+    style="
+    background: radial-gradient(ellipse at bottom, #150E28 0%, #090a0f 100%);
+    "
+  >
+    <AnimatedStarField />
+  </div>
+
+  <StarrySky />
+
   <div class="fixed inset-0 pointer-events-none">
     <AnimatedBlobs />
+    <!-- {#each Array(6) as _, i}
+      <Blob />
+    {/each} -->
   </div>
-  <div class=" min-h-screen">
+  <div class="relative min-h-screen">
+    <div class="z-10">
+      <StarrySky />
+    </div>
     <header>
       <div class="max-w-6xl container flex items-center justify-between py-6">
         <a href="/">
