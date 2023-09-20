@@ -18,6 +18,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"parallax-js": "^3.1.0",
 		"svelte-countup": "^0.2.6"
 	}
 }
