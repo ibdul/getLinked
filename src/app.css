@@ -52,17 +52,20 @@
     opacity: 0;
     cursor: pointer;
     height: 0;
-    width: 0;
+    width: 25px;
   }
-  span.checkmark {
-    /* position: absolute; */
-    top: 0;
-    left: 0;
+  span.checkmark,
+  span.checkmark_ghost {
     height: 25px;
     width: 25px;
+    border-radius: 5px;
+  }
+  span.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
     background-color: #eee;
     cursor: pointer;
-    border-radius: 5px;
   }
   /* On mouse-over, add a grey background color */
   label:hover input ~ .checkmark {
