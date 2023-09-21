@@ -1,102 +1,123 @@
 <script>
+  import { gsap } from "gsap";
   import { onMount } from "svelte";
 
   onMount(() => {
-    const cursor = document.querySelector(".cursor");
+    const cursorOuter = document.querySelector(".cursor--large");
+    const cursorInner = document.querySelector(".cursor--small");
+    let isStuck = false;
+    let mouse = {
+      x: -100,
+      y: -100,
+    };
 
-    document.addEventListener("mousemove", (e) => {
-      cursor.setAttribute(
-        "style",
-        "top: " + (e.pageY - 25) + "px; left: " + (e.pageX - 25) + "px;"
-      );
+    // Just in case you need to scroll
+    let scrollHeight = 0;
+    window.addEventListener("scroll", function (e) {
+      scrollHeight = window.scrollY;
     });
 
-    document.addEventListener("click", () => {
-      cursor.classList.add("cursor-click");
-
-      setTimeout(() => {
-        cursor.classList.remove("cursor-click");
-      }, 500);
-    });
-
-    document.addEventListener("scroll", () => {
-      cursor.classList.add("cursor-scroll");
-
-      setTimeout(() => {
-        cursor.classList.remove("cursor-scroll");
-      }, 500);
-    });
-
-    const interactiveElements = document.querySelectorAll(
-      "a, button, .interactive"
+    let cursorOuterOriginalState = {
+      width: cursorOuter.getBoundingClientRect().width,
+      height: cursorOuter.getBoundingClientRect().height,
+    };
+    const buttons = document.querySelectorAll(
+      "button, a, input, textarea, select, .interactive"
     );
-    interactiveElements.forEach((element) => {
-      element.addEventListener("mouseenter", () => {
-        console.log("here");
-        cursor.classList.add("hovering");
-      });
 
-      element.addEventListener("mouseleave", () => {
-        cursor.classList.remove("hovering");
+    buttons.forEach((button) => {
+      button.addEventListener("pointerenter", handleMouseEnter);
+      button.addEventListener("pointerleave", handleMouseLeave);
+    });
+
+    document.body.addEventListener("pointermove", updateCursorPosition);
+    document.body.addEventListener("pointerdown", () => {
+      gsap.to(cursorInner, 0.15, {
+        scale: 2,
       });
     });
+    document.body.addEventListener("pointerup", () => {
+      gsap.to(cursorInner, 0.15, {
+        scale: 1,
+      });
+    });
+
+    function updateCursorPosition(e) {
+      mouse.x = e.pageX;
+      mouse.y = e.pageY;
+    }
+
+    function updateCursor() {
+      gsap.set(cursorInner, {
+        x: mouse.x,
+        y: mouse.y,
+      });
+
+      if (!isStuck) {
+        gsap.to(cursorOuter, {
+          duration: 0.15,
+          x: mouse.x - cursorOuterOriginalState.width / 2,
+          y: mouse.y - cursorOuterOriginalState.height / 2,
+        });
+      }
+
+      requestAnimationFrame(updateCursor);
+    }
+
+    updateCursor();
+
+    function handleMouseEnter(e) {
+      isStuck = true;
+      const targetBox = e.currentTarget.getBoundingClientRect();
+      gsap.to(cursorOuter, 0.2, {
+        x: targetBox.left,
+        y: targetBox.top + scrollHeight,
+        width: targetBox.width,
+        height: targetBox.height,
+        borderRadius: 0,
+        backgroundColor: "rgba(255, 255, 255, 0.1)",
+        borderColor: "#903AFF",
+      });
+    }
+
+    function handleMouseLeave(e) {
+      isStuck = false;
+      gsap.to(cursorOuter, 0.2, {
+        width: cursorOuterOriginalState.width,
+        height: cursorOuterOriginalState.width,
+        borderRadius: "50%",
+        backgroundColor: "transparent",
+        borderColor: "#FF26B9",
+      });
+    }
   });
 </script>
 
-<div class="cursor" />
+<div class="cursor cursor--large" />
+<div class="cursor cursor--small" />
 
 <style>
+  :global(body) {
+    cursor: none;
+  }
+
   .cursor {
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
     position: absolute;
-    width: 50px;
-    height: 50px;
-    background: linear-gradient(
-      120deg,
-      #ff1744,
-      #e040fb,
-      #2979ff,
-      #00e5ff,
-      #76ff03
-    );
-    background-size: 1600% 1600%;
-    mix-blend-mode: overlay;
+    left: 0;
+    top: 0;
     pointer-events: none;
-    z-index: 50;
-    transition: 0.15s linear;
-    animation: blobRadius 5s ease infinite, blobBackground 15s ease infinite;
+    z-index: 100;
   }
-
-  @keyframes blobRadius {
-    0%,
-    100% {
-      border-radius: 43% 77% 80% 40% / 40% 40% 80% 80%;
-    }
-    20% {
-      border-radius: 47% 73% 61% 59% / 47% 75% 45% 73%;
-    }
-    40% {
-      border-radius: 46% 74% 74% 46% / 74% 58% 62% 46%;
-    }
-    60% {
-      border-radius: 47% 73% 61% 59% / 40% 40% 80% 80%;
-    }
-    80% {
-      border-radius: 50% 70% 52% 68% / 51% 61% 59% 69%;
-    }
+  .cursor--large {
+    --size: 40px;
+    border: 1px solid #ff26b9;
   }
-
-  @keyframes blobBackground {
-    0%,
-    100% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-  }
-
-  :global(.cursor.hovering) {
-    width: 100px;
-    height: 100px;
+  .cursor--small {
+    --size: 10px;
+    background: #ff26b9;
+    transform: translate(-50%, -50%);
   }
 </style>
