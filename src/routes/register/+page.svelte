@@ -98,7 +98,6 @@
         await response
           .json()
           .then((result) => {
-            console.log(result);
             if (result.id) {
               openSuccessModal();
               form_data = {
@@ -114,7 +113,6 @@
             errors = [...errors, ...Object.values(result)];
           })
           .catch((err) => {
-            console.log(err);
             errors = [
               ...errors,
               "Something went wrong, please try again later",
@@ -122,8 +120,6 @@
           });
       })
       .catch(async (err) => {
-        console.log("here");
-        console.log(err);
         errors = [...errors, "Something went wrong, please try again later"];
       })
       .finally(() => {

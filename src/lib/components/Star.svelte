@@ -23,7 +23,6 @@
     return Math.random() * (max - min) + min;
   }
   onMount(() => {
-    console.log({ element });
     var parallaxInstance = new Parallax(element);
     // var scenes = document.querySelectorAll(".star");
     // scenes.forEach((scene) => {
