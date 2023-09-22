@@ -68,7 +68,7 @@
   class="layout_wrapper bg-dark text-white selection:bg-pink selection:text-dark"
 >
   <div
-    class="min-h-screen fixed inset-0 overflow-hidden"
+    class="min-h-screen fixed inset-0 overflow-hidden opacity-30"
     style="
     background: radial-gradient(ellipse at bottom, #150E28 0%, #090a0f 100%);
     "
@@ -78,7 +78,7 @@
 
   <StarrySky />
 
-  <div class="fixed inset-0 pointer-events-none">
+  <div class="overflow-hidden fixed inset-0 pointer-events-none">
     <!-- <AnimatedBlobs /> -->
     <!-- {#each Array(6) as _, i}
       <Blob />

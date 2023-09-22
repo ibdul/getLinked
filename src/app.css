@@ -31,7 +31,7 @@
     @apply heading-font font-bold;
   }
   .btn {
-    @apply bg-gradient-to-r from-pink-100 via-pink to-purple px-10 py-2 rounded-sm inline-block;
+    @apply bg-gradient-to-r from-pink-100 via-pink to-purple hover:to-pink/30 hover:text-dark px-10 py-2 rounded-sm inline-block;
   }
 
   section {
@@ -125,8 +125,17 @@
     content: "";
     @apply block w-0 h-2 bg-pink transition-default duration-500;
   }
+
+  /* to prevent animations FOUC */
+  [data-animate] {
+    @apply invisible;
+  }
 }
 
-html {
+body {
   scroll-behavior: smooth;
+}
+
+section {
+  overflow: hidden;
 }

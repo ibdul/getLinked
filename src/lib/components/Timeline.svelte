@@ -5,6 +5,8 @@
 <ul class="timeline space-y-12">
   {#each data as { date, title, description }, index}
     <li
+      data-animate
+      data-animation-direction={index % 2 == 0 ? "left" : "right"}
       class="timeline-container {index % 2 == 0
         ? 'left md:text-right'
         : 'right'}"
@@ -30,7 +32,7 @@
     counter-reset: section;
   }
 
-  .timeline::after {
+  .timeline::before {
     content: "";
     position: absolute;
     width: 2px;
@@ -118,7 +120,7 @@
   } */
 
   @media (max-width: 767.98px) {
-    .timeline::after {
+    .timeline::before {
       left: 30px;
     }
 

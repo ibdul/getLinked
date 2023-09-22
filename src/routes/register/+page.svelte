@@ -2,6 +2,7 @@
   import app_fetch from "$lib/app_fetch";
   import { gsap } from "gsap";
   import { onMount } from "svelte";
+  import animatePage from "$lib/animations.js";
 
   const modal_timeline = new gsap.timeline({ paused: true, reversed: true });
 
@@ -25,6 +26,7 @@
   let categories = [];
 
   onMount(async () => {
+    animatePage();
     // fetch categories
     app_fetch("categories-list").then(async (response) => {
       categories = await response.json();
@@ -134,13 +136,17 @@
 
 <main class="page_wrapper min-h-[80vh] flex items-center justify-center">
   <div
-    class="max-w-6xl container lg:grid grid-cols-2 space-y-4 lg:py-20 items-center"
+    class="max-w-6xl container lg:grid grid-cols-2 space-y-4 py-10 lg:py-20 items-center"
   >
     <div class="hidden max-lg:block">
       <h2 class="heading-1 text-pink">Register</h2>
     </div>
 
-    <div>
+    <div
+      data-animate
+      data-animation="pop"
+      data-animation-is-not-scroll-triggered
+    >
       <img
         class="max-lg:mx-auto max-lg:w-[80%]"
         src="/images/3d-graphic-designer-showing-thumbs-up.png"
@@ -148,7 +154,11 @@
       />
     </div>
     <div
-      class="space-y-8 max-w-lg container lg:bg-white/[3%] lg:px-10 py-6 lg:py-20 rounded-md lg:shadow-md backdrop-filter backdrop-blur-sm border border-white/[1%]"
+      data-animate
+      data-animation-direction="down"
+      data-animation-delay=".5"
+      data-animation-is-not-scroll-triggered
+      class="space-y-8 max-w-lg container lg:bg-white/[3%] px-2 lg:px-10 py-6 lg:py-20 rounded-md lg:shadow-md backdrop-filter backdrop-blur-sm border border-white/[1%]"
     >
       <div class="space-y-6">
         <h2 class="heading-1 text-pink max-lg:hidden">Register</h2>
@@ -247,7 +257,7 @@
           Please review your registration details before submitting
         </p>
         <p class="text-sm">
-          <label class="flex items-center gap-2 relative">
+          <label class="flex items-center gap-2 relative max-md:gap-4">
             <input
               type="checkbox"
               name="terms and conditions"

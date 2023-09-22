@@ -1,4 +1,4 @@
-<div class="star-layers">
+<div class="star-layers 2xl:translate-x-[10%]">
   <div id="stars" />
   <div id="stars2" />
   <div id="stars3" />

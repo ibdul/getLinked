@@ -47,7 +47,7 @@
       <span class="opacity-0"> HR Innovation </span>
       <span
         class="{showStroke
-          ? 'max-sm:w-[100px] max-sm:translate-x-[-100%] w-[200px]'
+          ? 'max-sm:w-[100px] max-sm:translate-x-[-150%] w-[200px]'
           : 'w-0'} overflow-hidden transition-default absolute inset-x-0 -bottom-4"
       >
         <img src="/images/stroke.svg" class="" alt="stroke" />

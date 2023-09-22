@@ -3,6 +3,13 @@
   import Countdown from "../lib/components/Countdown.svelte";
   import Typewriter from "../lib/components/Typewriter.svelte";
   import Timeline from "../lib/components/Timeline.svelte";
+  import animatePage from "$lib/animations.js";
+  import { onMount } from "svelte";
+
+  onMount(() => {
+    animatePage();
+  });
+
   const judging_criteria = [
     {
       title: "Innovation and Creativity",
@@ -133,7 +140,12 @@
           <Typewriter message="Igniting a Revolution in HR Innovation" />
         </h2>
       </div>
-      <div class="space-y-8">
+      <div
+        class="space-y-8"
+        data-animate
+        data-animation-direction="up"
+        data-animation-delay=".2"
+      >
         <div class="space-y-4">
           <h1 class="title-1">
             getlinked Tech
@@ -159,15 +171,20 @@
           <span class="font-special text-[40px]">00</span>S
         </p>
       </div>
-      <div class="lg:min-h-[80vh] relative">
+      <div
+        class="lg:min-h-[80vh] relative flex items-center"
+        data-animate
+        data-animation-delay=".6"
+      >
+        <img
+          class="absolute inset-x-0"
+          src="/images/man-wearing-smart-glasses-touching-virtual-screen.png"
+          alt="man wearing smart glasses touching virtual screen"
+        />
         <img
           src="/images/hero-stary-field.png"
           alt="hero stary field"
-          class="absolute inset-x-0"
-        />
-        <img
-          src="/images/man-wearing-smart-glasses-touching-virtual-screen.png"
-          alt="man wearing smart glasses touching virtual screen"
+          class="animate-pulse"
         />
       </div>
     </div>
@@ -176,18 +193,29 @@
     <div
       class="max-w-6xl container grid lg:grid-cols-2 max-lg:gap-6 max-lg:text-center items-center"
     >
-      <div>
+      <div class="flex justify-center">
         <img
+          data-animate
+          data-animation="pop"
           src="/images/the-big-idea.png"
           alt="infographic showing different elements and how they link together to form an idea"
         />
       </div>
       <div class="space-y-4">
         <h2 class="heading-1">
-          Introduction to getlinked
-          <span class="text-purple block"> tech Hackathon 1.0 </span>
+          <span data-animate-text data-animation-direction="left">
+            Introduction to getlinked
+          </span>
+          <span
+            data-animate-text
+            data-animation-delay=".2"
+            data-animation-direction="left"
+            class="text-purple block"
+          >
+            tech Hackathon 1.0
+          </span>
         </h2>
-        <p>
+        <p data-animate-text data-animation-direction="up">
           Our tech hackathon is a melting pot of visionaries, and its purpose is
           as clear as day: to shape the future. Whether you're a coding genius,
           a design maverick, or a concept wizard, you'll have the chance to
@@ -204,10 +232,14 @@
     >
       <div class="space-y-4">
         <h2 class="heading-1">
-          Rules and
-          <span class="block text-purple">Guidelines</span>
+          <span data-animate-text> Rules and </span>
+          <span
+            class="block text-purple"
+            data-animate-text
+            data-animation-delay=".2">Guidelines</span
+          >
         </h2>
-        <p>
+        <p data-animate-text data-animation-direction="up">
           Our tech hackathon is a melting pot of visionaries, and its purpose is
           as clear as day: to shape the future. Whether you're a coding genius,
           a design maverick, or a concept wizard, you'll have the chance to
@@ -217,7 +249,13 @@
         </p>
       </div>
       <div class="max-lg:order-first">
-        <img src="/images/woman-with-tab.png" alt="woman with tablet" />
+        <img
+          data-animate
+          data-animation="pop"
+          data-animation-direction="left"
+          src="/images/woman-with-tab.png"
+          alt="woman with tablet"
+        />
       </div>
     </div>
   </section>
@@ -227,16 +265,27 @@
     >
       <div>
         <img
+          data-animate
+          data-animation="pop"
           src="/images/two-people-doing-some-analysis.png"
           alt="two people doing some analysis"
         />
       </div>
       <div class="space-y-8">
         <h2 class="heading-1">
-          Judging Criteria
-          <span class="block text-purple">Key attributes</span>
+          <span data-animate-text> Judging Criteria </span>
+          <span
+            data-animate-text
+            data-animation-delay=".2"
+            class="block text-purple">Key attributes</span
+          >
         </h2>
-        <ul class="space-y-4">
+        <ul
+          class="space-y-4"
+          data-animate
+          data-animation-delay=".5"
+          data-animation-direction="left"
+        >
           {#each judging_criteria as { title, description }}
             <li>
               <h3 class="text-pink-200 font-bold inline">
@@ -249,7 +298,13 @@
             </li>
           {/each}
         </ul>
-        <a href="#" class="btn">Read More</a>
+        <div
+          data-animate
+          data-animation-delay=".2"
+          data-animation-direction="left"
+        >
+          <a href="#" class="btn">Read More</a>
+        </div>
       </div>
     </div>
   </section>
@@ -258,16 +313,32 @@
       <div class="space-y-12">
         <div class="space-y-4 max-lg:text-center">
           <h2 class="heading-1">
-            Frequently Asked
-            <span class="block text-purple">Questions</span>
+            <span data-animate-text> Frequently Asked </span>
+            <span
+              data-animate-text
+              data-animation-selection="letters"
+              data-animation-direction="left"
+              data-animation-delay=".2"
+              class="block text-purple">Questions</span
+            >
           </h2>
           <p>
-            We got answers to the questions that you might want to ask about <span
+            <span
+              data-animate-text
+              data-animation-direction="up"
+              data-animation-delay=".4"
+            >
+              We got answers to the questions that you might want to ask about
+            </span>
+            <span
+              data-animate-text
+              data-animation-direction="up"
+              data-animation-delay=".6"
               class="font-bold">getlinked Hackathon 1.0</span
             >
           </p>
         </div>
-        <ul class="divide-y divide-pink">
+        <ul class="divide-y divide-pink" data-animate>
           {#each FAQs as { question, answer }}
             <li>
               <div class="flex items-center justify-between py-4">
@@ -280,6 +351,9 @@
       </div>
       <div>
         <img
+          data-animate
+          data-animation="pop"
+          data-animation-direction="left"
           src="/images/man-thinking.png"
           alt="man sitting on cloud and thinking"
         />
@@ -289,8 +363,19 @@
   <section id="timeline">
     <div class="max-w-6xl container space-y-8">
       <div class="text-center max-w-sm container">
-        <h2 class="heading-1">Timeline</h2>
-        <p>
+        <h2
+          class="heading-1"
+          data-animate-text
+          data-animation-selection="letters"
+          data-animation-direction="down"
+        >
+          Timeline
+        </h2>
+        <p
+          data-animate-text
+          data-animation-direction="up"
+          data-animation-delay=".4"
+        >
           Here is the breakdown of the time we anticipate using for the upcoming
           event.
         </p>
@@ -302,27 +387,50 @@
     <div class="max-w-6xl container lg:grid grid-cols-2 max-lg:space-y-12">
       <div class="text-center lg:hidden">
         <h2 class="heading-1">
-          Prizes and
-          <span class="text-purple block">Rewards</span>
+          <span class="heading-1" data-animate-text> Prizes and </span>
+          <span
+            data-animate-text
+            data-animation-selection="letters"
+            class="text-purple block">Rewards</span
+          >
         </h2>
-        <p>
+        <p data-animate-text>
           Highlight of the prizes or rewards for winners and for participants.
         </p>
       </div>
-      <div>
-        <img src="/images/trophy.png" alt="trophy for winner" />
+      <div class="flex justify-center">
+        <img
+          data-animate
+          data-animation="pop"
+          src="/images/trophy.png"
+          alt="trophy for winner"
+        />
       </div>
       <div class="space-y-32">
         <div class="max-lg:hidden">
           <h2 class="heading-1">
-            Prizes and
-            <span class="text-purple block">Rewards</span>
+            <span data-animate-text data-animation-direction="left">
+              Prizes and
+            </span>
+            <span
+              data-animate-text
+              data-animation-selection="letters"
+              data-animation-direction="left"
+              data-animation-delay=".2"
+              class="text-purple block">Rewards</span
+            >
           </h2>
-          <p>
+          <p
+            data-animate-text
+            data-animation-direction="up"
+            data-animation-delay=".4"
+          >
             Highlight of the prizes or rewards for winners and for participants.
           </p>
         </div>
         <ul
+          data-animate
+          data-animation-direction="up"
           class="flex items-center justify-center gap-4 text-2xl font-bold text-center"
         >
           <li
@@ -338,8 +446,8 @@
               />
             </div>
             <h3>2nd</h3>
-            <p class="text-lg font-semibold">Place</p>
-            <p class="text-pink">N300,000</p>
+            <p class="text-sm md:text-lg font-semibold">Place</p>
+            <p class="text-pink text-[16px] md:text-lg">N300,000</p>
           </li>
           <li
             class="relative pt-32 pb-10 bg-purple/[12%] px-2 sm:px-6 border border-purple rounded-md"
@@ -350,8 +458,8 @@
               <img src="/images/gold_medal.png" alt="gold medal" />
             </div>
             <h3>1st</h3>
-            <p class="text-lg font-semibold">Place</p>
-            <p class="text-purple">N400,000</p>
+            <p class="text-sm md:text-lg font-semibold">Place</p>
+            <p class="text-purple text-[16px] md:text-lg">N400,000</p>
           </li>
           <li
             class="relative pt-20 pb-10 bg-pink/[12%] px-2 sm:px-6 border border-pink rounded-md"
@@ -365,9 +473,9 @@
                 class="w-[70%]"
               />
             </div>
-            <h3>2nd</h3>
-            <p class="text-lg font-semibold">Place</p>
-            <p class="text-pink">N150,000</p>
+            <h3>3rd</h3>
+            <p class="text-sm md:text-lg font-semibold">Place</p>
+            <p class="text-pink text-[16px] md:text-lg">N150,000</p>
           </li>
         </ul>
       </div>
@@ -376,16 +484,29 @@
   <section>
     <div class="max-w-6xl container text-center space-y-8">
       <div class="max-w-lg container space-y-4">
-        <h2 class="heading-1">Partners and Sponsors</h2>
-        <p>
+        <h2
+          class="heading-1"
+          data-animate-text
+          data-animation-selection="letters"
+          data-animation-direction="up"
+        >
+          Partners and Sponsors
+        </h2>
+        <p
+          data-animate-text
+          data-animation-delay=".5"
+          data-animation-direction="up"
+        >
           Getlinked Hackathon 1.0 is honored to have the following major
           companies as its partners and sponsors
         </p>
       </div>
       <div
         class="w-full border border-pink rounded-sm min-h-[100px] flex items-center justify-center p-10"
+        data-animate
+        data-animation-direction="down"
       >
-        <ul class="grid grid-cols-3 gap-16 md:gap-20 items-center relative">
+        <ul class="grid sm:grid-cols-3 gap-16 md:gap-20 items-center relative">
           {#each partners as partner}
             <li class="flex items-center justify-center md:px-10">
               <img
@@ -394,7 +515,7 @@
               />
             </li>
           {/each}
-          <div class="absolute inset-0 pointer-events-none">
+          <div class="max-sm:invisible absolute inset-0 pointer-events-none">
             <div class="absolute inset-0 flex items-center">
               <span class="w-full h-[2px] bg-pink" />
             </div>
@@ -420,17 +541,36 @@
       <div class="space-y-8">
         <div class="space-y-2">
           <h2 class="heading-1">
-            Privacy Policy and
-            <span class="text-purple block">Terms</span>
+            <span data-animate-text data-animation-direction="left">
+              Privacy Policy and
+            </span>
+            <span
+              class="text-purple block"
+              data-animate-text
+              data-animation-direction="left"
+              data-animation-selection="letters"
+              data-animation-delay=".2">Terms</span
+            >
           </h2>
-          <p>Last updated on September 12, 2023</p>
+          <p
+            data-animate
+            data-animation-delay=".3"
+            data-animation-direction="left"
+          >
+            Last updated on September 12, 2023
+          </p>
         </div>
-        <p>
+        <p
+          data-animate-text
+          data-animation-delay=".5"
+          data-animation-direction="up"
+        >
           Below are our privacy & policy, which outline a lot of goodies. it’s
           our aim to always take of our participant
         </p>
         <div
-          class="border border-pink rounded-[4px] p-16 bg-[#D9D9D9]/[3%] space-y-10"
+          data-animate
+          class="border border-pink rounded-[4px] p-6 md:p-16 bg-[#D9D9D9]/[3%] space-y-10 backdrop-filter backdrop-blur-[1px]"
         >
           <p>
             At getlinked tech Hackathon 1.0, we value your privacy and are
@@ -475,7 +615,11 @@
           </div>
         </div>
       </div>
-      <div class="relative">
+      <div
+        class="relative flex justify-center"
+        data-animate
+        data-animation-direction="up"
+      >
         <img
           src="/images/sheild-lock.png"
           class="absolute inset-0"

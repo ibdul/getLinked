@@ -1,6 +1,12 @@
 <script>
   import socials from "$lib/socials";
   import app_fetch from "$lib/app_fetch";
+  import animatePage from "$lib/animations.js";
+  import { onMount } from "svelte";
+
+  onMount(() => {
+    animatePage();
+  });
 
   const form_data = {
     email: "",
@@ -53,29 +59,61 @@
 </svelte:head>
 
 <main class="min-h-[80vh] flex items-center justify-center">
-  <div class="max-w-5xl container lg:grid grid-cols-2 space-y-4 lg:py-20">
+  <div
+    class="max-w-5xl container lg:grid grid-cols-2 items-center space-y-4 py-10 lg:py-20"
+  >
     <div class="space-y-6 max-lg:hidden">
-      <h1 class="heading-1 text-pink">Get in touch</h1>
-      <ul class="max-w-sm space-y-6">
-        <li><p>Contact <span class="block">Information</span></p></li>
+      <h1
+        class="heading-1 text-pink"
+        data-animate-text
+        data-animation-direction="left"
+        data-animation-delay="1"
+      >
+        Get in touch
+      </h1>
+      <ul
+        class="max-w-sm space-y-6"
+        data-animate
+        data-animation-direction="left"
+        data-animation-delay="1"
+      >
         <li>
           <p>
-            27,Alara Street <span class="block">Yaba 100012</span>
-            <span class="block">Lagos State</span>
+            Contact <span class="block">Information</span>
+          </p>
+        </li>
+        <li>
+          <p>
+            27, Alara Street <span class="block"> Yaba 100012 </span>
+            <span class="block"> Lagos State</span>
           </p>
         </li>
         <li><p>Call Us : <a href="tel:07067981819">07067981819</a></p></li>
         <li>
           <p>
-            we are open from Monday-Friday <span class="block"
+            We are open from Monday-Friday <span class="block"
               >08:00am - 05:00pm</span
             >
           </p>
         </li>
       </ul>
       <div class="space-y-2">
-        <h2 class="heading-2 text-pink">Share on</h2>
-        <ul class="flex items-center gap-4">
+        <h2
+          class="heading-2 text-pink"
+          data-animate-text
+          data-animation-is-not-scroll-triggered
+          data-animation-delay="1.5"
+          data-animation-selection="letters"
+        >
+          Share on
+        </h2>
+        <ul
+          class="flex items-center gap-4"
+          data-animate
+          data-animation-direction="up"
+          data-animation-is-not-scroll-triggered
+          data-animation-delay="1.8"
+        >
           {#each $socials as social_link}
             <li>
               <a href={social_link.link} title="share on {social_link.title}">
@@ -90,7 +128,9 @@
       </div>
     </div>
     <div
-      class="space-y-8 max-w-lg container lg:bg-white/[3%] lg:px-10 py-10 lg:py-20 rounded-md lg:shadow-md max-lg:flex max-lg:h-[80vh] flex-col justify-between"
+      data-animate
+      data-animation-direction="down"
+      class="space-y-8 max-w-lg container lg:bg-white/[3%] px-2 lg:px-10 py-6 lg:py-20 rounded-md lg:shadow-md backdrop-filter backdrop-blur-sm border border-white/[1%]"
     >
       {#if success}
         <div
@@ -132,7 +172,7 @@
             <input
               type="email"
               name="email"
-              placeholder="enter your email"
+              placeholder="Enter your email"
               required
               bind:value={form_data.email}
             />
