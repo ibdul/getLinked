@@ -1,22 +1,19 @@
 <!-- src/components/Countdown.svelte -->
 
 <script>
-  import { onMount, onDestroy, tick } from "svelte";
+  import { onMount, onDestroy } from "svelte";
 
   let interval;
-  let targetDate = new Date("2023-12-31T23:59:59").getTime(); // Replace with your target date and time
-
-  let currentTime = 0;
-  let elapsedMilliseconds = 0;
+  let targetTime = new Date("2024-12-31T23:59:59"); // Replace with your target date and time
+  let timeLeft = 0;
 
   // Function to update the countdown values
   function updateCountdown() {
-    const now = new Date().getTime();
-    elapsedMilliseconds = now - currentTime;
+    const now = new Date();
+    timeLeft = targetTime - now;
   }
 
   onMount(() => {
-    currentTime = new Date().getTime();
     updateCountdown();
     interval = setInterval(updateCountdown, 1000);
   });
@@ -35,16 +32,16 @@
     const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
     const formattedHours = hours < 10 ? `0${hours}` : hours;
 
-    return `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
+    return {
+      seconds: formattedSeconds,
+      minutes: formattedMinutes,
+      hours: formattedHours,
+    };
   }
 </script>
 
-<div class="countdown">
-  <div class="countdown-item">
-    <span>{formatTime(elapsedMilliseconds)}</span>
-  </div>
-</div>
-
-<style>
-  /* Add your countdown styles here */
-</style>
+<p class="space-x-4">
+  <span class="font-special text-[40px]">{formatTime(timeLeft).hours}</span>H
+  <span class="font-special text-[40px]">{formatTime(timeLeft).minutes}</span>M
+  <span class="font-special text-[40px]">{formatTime(timeLeft).seconds}</span>S
+</p>

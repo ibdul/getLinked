@@ -129,7 +129,7 @@
 </svelte:head>
 
 <main class="divide-y divide-white/[18%]">
-  <section id="hero" class="max-lg:text-center">
+  <section id="hero" class="max-lg:text-center pb-0">
     <div
       class="relative max-w-6xl container lg:grid grid-cols-2 items-center space-y-4"
     >
@@ -164,12 +164,6 @@
         </p>
 
         <Countdown />
-
-        <p class="space-x-4">
-          <span class="font-special text-[40px]">00</span>H
-          <span class="font-special text-[40px]">00</span>M
-          <span class="font-special text-[40px]">00</span>S
-        </p>
       </div>
       <div
         class="lg:min-h-[80vh] relative flex items-center"
@@ -177,7 +171,7 @@
         data-animation-delay=".6"
       >
         <img
-          class="absolute inset-x-0"
+          class="absolute bottom-0 inset-x-0"
           src="/images/man-wearing-smart-glasses-touching-virtual-screen.webp"
           alt="man wearing smart glasses touching virtual screen"
         />
