@@ -1,5 +1,5 @@
 <div class="star-layers 2xl:translate-x-[10%]">
-  <div id="stars" />
+  <div id="stars" class="max-md:invisible" />
   <div id="stars2" />
   <div id="stars3" />
 </div>
