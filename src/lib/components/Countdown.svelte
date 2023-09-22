@@ -1,8 +1,6 @@
 <!-- src/components/Countdown.svelte -->
 
 <script>
-  import Countup from "svelte-countup";
-
   import { onMount, onDestroy, tick } from "svelte";
 
   let interval;
@@ -46,15 +44,6 @@
     <span>{formatTime(elapsedMilliseconds)}</span>
   </div>
 </div>
-
-<Countup
-  initial={0}
-  value={200}
-  duration={3000}
-  step={1}
-  roundto={1}
-  format={true}
-/>
 
 <style>
   /* Add your countdown styles here */
