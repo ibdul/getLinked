@@ -8,6 +8,18 @@
   // import AnimatedStarField from "../lib/components/AnimatedStarField.svelte";
   import { gsap } from "gsap";
   import { onMount } from "svelte";
+  import { onNavigate } from "$app/navigation";
+
+  onNavigate((navigation) => {
+    if (!document.startViewTransition) return;
+
+    return new Promise((resolve) => {
+      document.startViewTransition(async () => {
+        resolve();
+        await navigation.complete;
+      });
+    });
+  });
 
   const menu_open_timeline = gsap.timeline({ paused: true });
   const menu_close_timeline = gsap.timeline({ paused: true });
