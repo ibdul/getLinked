@@ -76,8 +76,7 @@ export default function () {
       tl.from(parent, {
         opacity: 0,
         [directionKey]: AMOUNT * -1,
-      })
-      .from(parent.querySelectorAll(child_selector), {
+      }).from(parent.querySelectorAll(child_selector), {
         [directionKey]: AMOUNT,
         opacity: 0,
         duration: 0.5,
@@ -91,7 +90,7 @@ export default function () {
       }
     });
   }
-  function createItemAnimation(parentSelector, childSelector = "*") {
+  function createItemAnimation(parentSelector) {
     document.querySelectorAll(parentSelector).forEach((parent) => {
       let delay = parent.dataset.animationDelay || 0;
       let tl = gsap.timeline({ paused: true, delay });
@@ -140,7 +139,7 @@ export default function () {
               },
               "<"
             )
-            .from(parent.querySelectorAll(childSelector), {
+            .from(parent.children, {
               [directionKey]: AMOUNT,
               opacity: 0,
               duration: 0.5,
