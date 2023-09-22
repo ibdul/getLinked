@@ -3,6 +3,7 @@
   import { gsap } from "gsap";
   import { onMount } from "svelte";
   import animatePage from "$lib/animations.js";
+  import viewTransition from "$lib/viewTransitions";
 
   const modal_timeline = new gsap.timeline({ paused: true, reversed: true });
 
@@ -74,8 +75,12 @@
 
   async function submitForm() {
     // reset states
-    errors = [];
-    busy = true;
+
+    viewTransition(() => {
+      busy = true;
+      errors = [];
+    });
+
     // validate data
     if (
       form_data.email == "" ||
@@ -86,7 +91,9 @@
       form_data.category == "" ||
       !form_data.privacy_poclicy_accepted
     ) {
-      errors = ["Please fill in information properly"];
+      viewTransition(() => {
+        errors = ["Please fill in information properly"];
+      });
       return;
     }
     await app_fetch("registration", {
@@ -112,20 +119,28 @@
                 privacy_poclicy_accepted: false,
               };
             }
-            errors = [...errors, ...Object.values(result)];
+            viewTransition(() => {
+              errors = [...errors, ...Object.values(result)];
+            });
           })
           .catch((err) => {
-            errors = [
-              ...errors,
-              "Something went wrong, please try again later",
-            ];
+            viewTransition(() => {
+              errors = [
+                ...errors,
+                "Something went wrong, please try again later",
+              ];
+            });
           });
       })
       .catch(async (err) => {
-        errors = [...errors, "Something went wrong, please try again later"];
+        viewTransition(() => {
+          errors = [...errors, "Something went wrong, please try again later"];
+        });
       })
       .finally(() => {
-        busy = false;
+        viewTransition(() => {
+          busy = false;
+        });
       });
   }
 </script>
@@ -275,9 +290,21 @@
             <li>{error}</li>
           {/each}
         </ul>
-        <div class="flex justify-center">
+        <div class="flex justify-center submit-btns-wrapper">
           {#if busy}
-            <button class="btn" disabled>Submitting...</button>
+            <button
+              disabled
+              class="flex items-center justify-center gap-2 btn-disabled"
+            >
+              <span
+                class="flex items-center justify-center w-4 h-4 border-2 border-t-transparent rounded-full animate-spin"
+              >
+                <span
+                  class="w-2 h-2 border-2 border-t-transparent rounded-full animate-spin"
+                />
+              </span>
+              submitting
+            </button>
           {:else}
             <button class="btn" type="submit">Submit</button>
           {/if}
@@ -316,3 +343,6 @@
     </div>
   </div>
 </div>
+
+<style>
+</style>

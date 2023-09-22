@@ -30,8 +30,14 @@
   .heading-2 {
     @apply heading-font font-bold;
   }
+  .btn-base {
+    @apply transition-default px-10 py-2 rounded-sm;
+  }
   .btn {
-    @apply bg-gradient-to-r from-pink-100 via-pink to-purple hover:to-pink/30 hover:text-dark transition-default px-10 py-2 rounded-sm inline-block;
+    @apply btn-base bg-gradient-to-r from-pink-100 via-pink to-purple hover:to-pink/30 hover:text-dark  inline-block;
+  }
+  .btn-disabled {
+    @apply btn-base bg-dark border;
   }
 
   section {
@@ -138,4 +144,13 @@ body {
 
 section {
   overflow: hidden;
+}
+html::view-transition-old(submitBtn),
+html::view-transition-new(submitBtn) {
+  width: 100%;
+  height: 100%;
+}
+
+.submit-btns-wrapper button {
+  view-transition-name: submitBtn;
 }
