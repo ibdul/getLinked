@@ -110,9 +110,9 @@
           </button>
           <ul class="space-y-4 w-full">
             <li class="group">
-              <a class="block" on:click={closeMenu} href="/#timeline"
-                >Timeline</a
-              >
+              <a class="block" on:click={closeMenu} href="/#timeline">
+                Timeline
+              </a>
             </li>
             <li class="group">
               <a class="block" on:click={closeMenu} href="/#overview"
