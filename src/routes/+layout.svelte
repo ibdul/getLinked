@@ -5,7 +5,7 @@
   import Cursor from "$lib/components/Cursor.svelte";
   // import StarrySky from "$lib/components/StarrySky.svelte";
   // import Blob from "../lib/components/Blob.svelte";
-  import AnimatedStarField from "../lib/components/AnimatedStarField.svelte";
+  // import AnimatedStarField from "../lib/components/AnimatedStarField.svelte";
   import { gsap } from "gsap";
   import { onMount } from "svelte";
 
@@ -67,14 +67,14 @@
 <div
   class="layout_wrapper bg-dark text-white selection:bg-pink selection:text-dark"
 >
-  <div
+  <!-- <div
     class="min-h-screen fixed inset-0 overflow-hidden opacity-30"
     style="
     background: radial-gradient(ellipse at bottom, #150E28 0%, #090a0f 100%);
     "
   >
     <AnimatedStarField />
-  </div>
+  </div> -->
 
   <!-- <StarrySky /> -->
 
