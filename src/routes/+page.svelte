@@ -349,7 +349,7 @@
             <li>
               <button class="w-full group/faq">
                 <div class="flex items-center justify-between py-4">
-                  <h3 class="group-focus/faq:text-sm">
+                  <h3 class="group-focus/faq:text-sm transition-default">
                     {question}
                   </h3>
                   <button
@@ -359,7 +359,7 @@
                   </button>
                 </div>
                 <div
-                  class="hidden group-focus/faq:block text-left p-4 bg-pink text-dark"
+                  class="max-h-0 group-focus/faq:max-h-[500px] group-focus/faq:p-4 transition-default text-left bg-pink text-dark"
                 >
                   {answer}
                 </div>
