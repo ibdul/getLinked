@@ -50,7 +50,7 @@
           ? 'max-sm:w-[100px] max-sm:translate-x-[-150%] w-[200px]'
           : 'w-0'} overflow-hidden transition-default absolute inset-x-0 -bottom-4"
       >
-        <img src="/images/stroke.svg" class="" alt="stroke" />
+        <img src="/images/stroke.webp" class="" alt="stroke" />
       </span>
     </span>
   </h2>

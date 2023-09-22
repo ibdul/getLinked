@@ -118,7 +118,7 @@
             <li>
               <a href={social_link.link} title="share on {social_link.title}">
                 <img
-                  src="/images/socials/{social_link.title}.svg"
+                  src="/images/socials/{social_link.title}.webp"
                   alt="{social_link.title} icon"
                 />
               </a>
@@ -208,7 +208,7 @@
             <li>
               <a href={social_link.link} title="share on {social_link.title}">
                 <img
-                  src="/images/socials/{social_link.title}.svg"
+                  src="/images/socials/{social_link.title}.webp"
                   alt="{social_link.title} icon"
                 />
               </a>

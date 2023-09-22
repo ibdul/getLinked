@@ -178,11 +178,11 @@
       >
         <img
           class="absolute inset-x-0"
-          src="/images/man-wearing-smart-glasses-touching-virtual-screen.png"
+          src="/images/man-wearing-smart-glasses-touching-virtual-screen.webp"
           alt="man wearing smart glasses touching virtual screen"
         />
         <img
-          src="/images/hero-stary-field.png"
+          src="/images/hero-stary-field.webp"
           alt="hero stary field"
           class="animate-pulse"
         />
@@ -197,7 +197,7 @@
         <img
           data-animate
           data-animation="pop"
-          src="/images/the-big-idea.png"
+          src="/images/the-big-idea.webp"
           alt="infographic showing different elements and how they link together to form an idea"
         />
       </div>
@@ -255,7 +255,7 @@
           data-animate
           data-animation="pop"
           data-animation-direction="left"
-          src="/images/woman-with-tab.png"
+          src="/images/woman-with-tab.webp"
           alt="woman with tablet"
         />
       </div>
@@ -269,7 +269,7 @@
         <img
           data-animate
           data-animation="pop"
-          src="/images/two-people-doing-some-analysis.png"
+          src="/images/two-people-doing-some-analysis.webp"
           alt="two people doing some analysis"
         />
       </div>
@@ -373,7 +373,7 @@
           data-animate
           data-animation="pop"
           data-animation-direction="left"
-          src="/images/man-thinking.png"
+          src="/images/man-thinking.webp"
           alt="man sitting on cloud and thinking"
         />
       </div>
@@ -421,7 +421,7 @@
         <img
           data-animate
           data-animation="pop"
-          src="/images/trophy.png"
+          src="/images/trophy.webp"
           alt="trophy for winner"
         />
       </div>
@@ -459,7 +459,7 @@
               class="absolute inset-x-0 top-0 translate-y-[-50%] flex justify-center"
             >
               <img
-                src="/images/silver_medal.png"
+                src="/images/silver_medal.webp"
                 alt="silver medal"
                 class="w-[70%]"
               />
@@ -474,7 +474,7 @@
             <div
               class="absolute inset-x-0 top-0 translate-y-[-50%] flex justify-center"
             >
-              <img src="/images/gold_medal.png" alt="gold medal" />
+              <img src="/images/gold_medal.webp" alt="gold medal" />
             </div>
             <h3>1st</h3>
             <p class="text-sm md:text-lg font-semibold">Place</p>
@@ -487,7 +487,7 @@
               class="absolute inset-x-0 top-0 translate-y-[-50%] flex justify-center"
             >
               <img
-                src="/images/bronze_medal.png"
+                src="/images/bronze_medal.webp"
                 alt="bronze medal"
                 class="w-[70%]"
               />
@@ -529,7 +529,7 @@
           {#each partners as partner}
             <li class="flex items-center justify-center md:px-10">
               <img
-                src="/images/partners/{partner.title}.png"
+                src="/images/partners/{partner.title}.webp"
                 alt="{partner.title} logo"
               />
             </li>
@@ -607,7 +607,7 @@
             <ul class="space-y-4">
               <li class="flex items-start gap-4">
                 <img
-                  src="/images/privacy-item.svg"
+                  src="/images/privacy-item.webp"
                   alt="check sign"
                   class="py-1"
                 />
@@ -618,7 +618,7 @@
               </li>
               <li class="flex items-start gap-4">
                 <img
-                  src="/images/privacy-item.svg"
+                  src="/images/privacy-item.webp"
                   alt="check sign"
                   class="py-1"
                 />
@@ -640,11 +640,11 @@
         data-animation-direction="up"
       >
         <img
-          src="/images/sheild-lock.png"
+          src="/images/sheild-lock.webp"
           class="absolute inset-0"
           alt="lock inside shield"
         />
-        <img src="/images/man-lock.png" alt="man standing on lock" />
+        <img src="/images/man-lock.webp" alt="man standing on lock" />
       </div>
     </div>
   </section>
@@ -691,7 +691,7 @@
                     title="share on {social_link.title}"
                   >
                     <img
-                      src="/images/socials/{social_link.title}.svg"
+                      src="/images/socials/{social_link.title}.webp"
                       alt="{social_link.title} icon"
                     />
                   </a>

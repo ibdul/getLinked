@@ -149,7 +149,7 @@
     >
       <img
         class="max-lg:mx-auto max-lg:w-[80%]"
-        src="/images/3d-graphic-designer-showing-thumbs-up.png"
+        src="/images/3d-graphic-designer-showing-thumbs-up.webp"
         alt="3d graphic designer showing thumbs up"
       />
     </div>
@@ -300,7 +300,7 @@
     >
       <img
         class="modal_element"
-        src="/images/congratulation.png"
+        src="/images/congratulation.webp"
         alt="boy jumping up in happiness"
       />
       <h2 class="modal_element font-bold">
