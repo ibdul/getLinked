@@ -15,7 +15,7 @@
 
 @layer components {
   .transition-default {
-    @apply transition-all duration-150 ease-in-out;
+    @apply transition-all duration-150 ease-in-out will-change-auto;
   }
 
   .heading-font {
@@ -128,7 +128,7 @@
 
   /* to prevent animations FOUC */
   [data-animate] {
-    @apply invisible;
+    @apply invisible will-change-auto;
   }
 }
 

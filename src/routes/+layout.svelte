@@ -76,9 +76,9 @@
 </script>
 
 <Cursor />
+
 <div
   class="layout_wrapper bg-dark text-white selection:bg-pink selection:text-dark"
-  data-sveltekit-preload-code="viewport"
 >
   <div
     class="min-h-screen fixed inset-0 overflow-hidden opacity-30"
