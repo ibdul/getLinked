@@ -31,7 +31,7 @@
     @apply heading-font font-bold;
   }
   .btn {
-    @apply bg-gradient-to-r from-pink-100 via-pink to-purple hover:to-pink/30 hover:text-dark px-10 py-2 rounded-sm inline-block;
+    @apply bg-gradient-to-r from-pink-100 via-pink to-purple hover:to-pink/30 hover:text-dark transition-default px-10 py-2 rounded-sm inline-block;
   }
 
   section {

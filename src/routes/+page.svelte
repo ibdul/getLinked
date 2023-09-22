@@ -210,6 +210,7 @@
             data-animate-text
             data-animation-delay=".2"
             data-animation-direction="left"
+            data-animation-selection="letters"
             class="text-purple block"
           >
             tech Hackathon 1.0
@@ -235,6 +236,7 @@
           <span data-animate-text> Rules and </span>
           <span
             class="block text-purple"
+            data-animation-selection="letters"
             data-animate-text
             data-animation-delay=".2">Guidelines</span
           >
@@ -273,9 +275,13 @@
       </div>
       <div class="space-y-8">
         <h2 class="heading-1">
-          <span data-animate-text> Judging Criteria </span>
+          <span data-animate-text data-animation-direction="left">
+            Judging Criteria
+          </span>
           <span
             data-animate-text
+            data-animation-direction="left"
+            data-animation-selection="letters"
             data-animation-delay=".2"
             class="block text-purple">Key attributes</span
           >
@@ -341,10 +347,22 @@
         <ul class="divide-y divide-pink" data-animate>
           {#each FAQs as { question, answer }}
             <li>
-              <div class="flex items-center justify-between py-4">
-                <h3>{question}</h3>
-                <span class="text-pink text-[20px]">+</span>
-              </div>
+              <button class="w-full group/faq">
+                <div class="flex items-center justify-between py-4">
+                  <h3 class="group-focus/faq:text-sm">
+                    {question}
+                  </h3>
+                  <span
+                    class="text-pink text-[20px] group-focus/faq:rotate-45 inline-block transition-default"
+                    >+</span
+                  >
+                </div>
+                <div
+                  class="hidden group-focus/faq:block text-left p-4 bg-pink text-dark"
+                >
+                  {answer}
+                </div>
+              </button>
             </li>
           {/each}
         </ul>
