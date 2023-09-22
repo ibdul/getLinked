@@ -76,11 +76,13 @@
 
       document.body.addEventListener("pointermove", updateCursorPosition);
       document.body.addEventListener("pointerdown", () => {
+        resetCursorIdleTimer();
         gsap.to(cursorInner, 0.15, {
           scale: 2,
         });
       });
       document.body.addEventListener("pointerup", () => {
+        resetCursorIdleTimer();
         gsap.to(cursorInner, 0.15, {
           scale: 1,
         });
