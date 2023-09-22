@@ -1,10 +1,10 @@
 <script>
   import "../app.css";
   import HamburgerIcon from "$lib/components/icons/HamburgerIcon.svelte";
-  import AnimatedBlobs from "$lib/components/AnimatedBlobs.svelte";
+  // import AnimatedBlobs from "$lib/components/AnimatedBlobs.svelte";
   import Cursor from "$lib/components/Cursor.svelte";
-  import StarrySky from "$lib/components/StarrySky.svelte";
-  import Blob from "../lib/components/Blob.svelte";
+  // import StarrySky from "$lib/components/StarrySky.svelte";
+  // import Blob from "../lib/components/Blob.svelte";
   import AnimatedStarField from "../lib/components/AnimatedStarField.svelte";
   import { gsap } from "gsap";
   import { onMount } from "svelte";
@@ -76,7 +76,7 @@
     <AnimatedStarField />
   </div>
 
-  <StarrySky />
+  <!-- <StarrySky /> -->
 
   <div class="overflow-hidden fixed inset-0 pointer-events-none">
     <!-- <AnimatedBlobs /> -->
@@ -86,7 +86,7 @@
   </div>
   <div class="relative min-h-screen">
     <div class="z-10 -space-y-20">
-      <StarrySky />
+      <!-- <StarrySky /> -->
     </div>
     <header>
       <div class="max-w-6xl container flex items-center justify-between py-6">
