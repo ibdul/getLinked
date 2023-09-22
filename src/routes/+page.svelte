@@ -352,10 +352,11 @@
                   <h3 class="group-focus/faq:text-sm">
                     {question}
                   </h3>
-                  <span
-                    class="text-pink text-[20px] group-focus/faq:rotate-45 inline-block transition-default"
-                    >+</span
+                  <button
+                    class="text-pink text-[20px] group-focus/faq:rotate-45 group-focus/faq:pointer-events-auto pointer-events-none inline-block transition-default"
                   >
+                    +
+                  </button>
                 </div>
                 <div
                   class="hidden group-focus/faq:block text-left p-4 bg-pink text-dark"
