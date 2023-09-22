@@ -6,6 +6,48 @@
     const cursorOuter = document.querySelector(".cursor--large");
     const cursorInner = document.querySelector(".cursor--small");
     let isStuck = false;
+    let idleTimeout;
+
+    function setCursorIdleStyle() {
+      gsap.to(cursorInner, {
+        duration: 0.15,
+        width: "50px",
+        height: "50px",
+        borderRadius: "20",
+        backgroundColor: "#903AFF",
+      });
+      gsap.to(
+        cursorInner.querySelectorAll("span"),
+        {
+          opacity: 1,
+        },
+        "<"
+      );
+    }
+
+    function resetCursorIdleTimer() {
+      gsap.to(cursorInner, {
+        duration: 0.15,
+        width: "10px",
+        height: "10px",
+        borderRadius: "50%",
+        backgroundColor: "#ff26b9",
+      });
+      gsap.to(
+        cursorInner.querySelectorAll("span"),
+        {
+          opacity: 0,
+        },
+        "<"
+      );
+
+      clearTimeout(idleTimeout);
+      idleTimeout = setTimeout(setCursorIdleStyle, 2000);
+    }
+
+    document.addEventListener("mousemove", resetCursorIdleTimer);
+    resetCursorIdleTimer(); // Initial setup
+
     let mouse = {
       x: -100,
       y: -100,
@@ -93,8 +135,14 @@
   });
 </script>
 
-<div class="cursor cursor--large" />
-<div class="cursor cursor--small" />
+<div class="cursor-wrapper overflow-hidden">
+  <div class="cursor cursor--large" />
+  <div class="cursor cursor--small flex items-center justify-center">
+    <span class="text-dark font-bold animate-bounce">.</span><span
+      class="text-dark font-bold animate-bounce del">.</span
+    ><span class="text-dark font-bold animate-bounce">.</span>
+  </div>
+</div>
 
 <style>
   :global(body) {
