@@ -175,7 +175,7 @@
               <img
                 src="/images/bulb.png"
                 alt="bulb"
-                class="not-sr-only -top-16 right-24 absolute scale-75"
+                class="not-sr-only -top-12 md:-top-14 right-12 md:right-28 absolute scale-50 md:scale-75"
                 loading="lazy"
               />
               getlinked Tech
