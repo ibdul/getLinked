@@ -118,6 +118,7 @@
                 category: "",
                 privacy_poclicy_accepted: false,
               };
+              return;
             }
             viewTransition(() => {
               errors = [...errors, ...Object.values(result)];
