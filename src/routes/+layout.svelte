@@ -14,6 +14,8 @@
   import { onNavigate } from "$app/navigation";
   import { page } from "$app/stores";
 
+  let site_origin = "";
+
   const page_links = [
     { title: "timeline", href: "/#timeline" },
     { title: "overview", href: "/#overview" },
@@ -67,6 +69,7 @@
   }
 
   onMount(() => {
+    site_origin = window.location.origin;
     gsap.set(".menu_close_btn", { y: "-120px", rotate: "-360" });
     menu_open_timeline
       .set(".menu_close_btn", { y: "-120px", rotate: "-360" })
@@ -152,6 +155,40 @@
     handleScroll();
   });
 </script>
+
+<svelte:head>
+  <!-- Primary Meta Tags -->
+  <title>get-linked pre-hackathon</title>
+  <meta
+    name="description"
+    content="Our tech hackathon is a melting pot of visionaries, and its purpose is as clear as day: to shape the future. Whether you're a coding genius, a design maverick, or a concept wizard, you'll have the chance to transform your ideas into reality. Solving real-world problems, pushing the boundaries of technology, and creating solutions that can change the world, that's what we're all about!"
+  />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={site_origin} />
+  <meta property="og:title" content="get-linked pre-hackathon" />
+  <meta
+    property="og:description"
+    content="Our tech hackathon is a melting pot of visionaries, and its purpose is as clear as day: to shape the future. Whether you're a coding genius, a design maverick, or a concept wizard, you'll have the chance to transform your ideas into reality. Solving real-world problems, pushing the boundaries of technology, and creating solutions that can change the world, that's what we're all about!"
+  />
+  <meta property="og:image" content="{site_origin}/getlinked-banner.png" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content={site_origin} />
+  <meta property="twitter:title" content="get-linked pre-hackathon" />
+  <meta
+    property="twitter:description"
+    content="Our tech hackathon is a melting pot of visionaries, and its purpose is as clear as day: to shape the future. Whether you're a coding genius, a design maverick, or a concept wizard, you'll have the chance to transform your ideas into reality. Solving real-world problems, pushing the boundaries of technology, and creating solutions that can change the world, that's what we're all about!"
+  />
+  <meta
+    property="twitter:image"
+    content="{site_origin}/get-linked-banner.png"
+  />
+
+  <!-- Meta Tags Generated with https://metatags.io -->
+</svelte:head>
 
 {#if showCursor}
   <Cursor />

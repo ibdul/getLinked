@@ -27,6 +27,7 @@
       success = false;
       busy = true;
     });
+
     // validate data
     if (
       form_data.email == "" ||
@@ -73,7 +74,14 @@
   <div
     class="max-w-5xl container lg:grid grid-cols-2 items-center space-y-4 py-10 lg:py-20"
   >
-    <div class="space-y-6 max-lg:hidden">
+    <div class="relative space-y-6 max-lg:hidden">
+      <div class="pointer-events-none absolute inset-0">
+        <img
+          src="/images/stars/star.png"
+          alt="star"
+          class="not-sr-only animate-pulse scale-50"
+        />
+      </div>
       <h1
         class="heading-1 text-pink"
         data-animate-text
