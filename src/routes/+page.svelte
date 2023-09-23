@@ -166,7 +166,7 @@
         <Countdown />
       </div>
       <div
-        class="lg:min-h-[80vh] relative flex items-center"
+        class="max-xl:lg:min-h-[80vh] relative flex items-center"
         data-animate
         data-animation-delay=".6"
       >
