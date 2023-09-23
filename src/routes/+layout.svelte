@@ -18,7 +18,14 @@
     { title: "contact", href: "/contact-us" },
   ];
 
+  let showCursor = true;
+
   onNavigate((navigation) => {
+    showCursor = false;
+    setTimeout(() => {
+      showCursor = true;
+    }, 100);
+
     if (!document.startViewTransition) return;
 
     return new Promise((resolve) => {
@@ -99,7 +106,9 @@
   });
 </script>
 
-<Cursor />
+{#if showCursor}
+  <Cursor />
+{/if}
 
 <div
   class="layout_wrapper bg-dark text-white selection:bg-pink selection:text-dark"
