@@ -103,7 +103,7 @@
     let header_top = document.querySelector(".header-top");
     let header = document.querySelector("header");
     let sticky_header_classes =
-      "sticky top-0 !py-2 backdrop-blur-[2px] z-10 bg-dark/60 header-sticky".split(
+      "sticky top-0 !py-2 backdrop-blur-[2px] bg-dark/60 header-sticky".split(
         " "
       );
     var header_observer = new IntersectionObserver(
@@ -163,6 +163,48 @@
   class="layout_wrapper overflow-clip bg-dark text-white selection:bg-pink selection:text-dark"
 >
   <div
+    class="menu z-[90] bg-dark min-h-screen fixed inset-0 flex items-center px-10"
+  >
+    <button
+      class="menu_close_btn border rounded-full w-6 h-6 p-8 hover:p-10 hover:rotate-90 transition-default flex items-center justify-center absolute top-0 right-0 m-12"
+      on:click={closeMenu}
+    >
+      &times;
+    </button>
+    <nav class="space-y-6">
+      <ul class="capitalize space-y-4 w-full">
+        {#each page_links as page_link}
+          <li class="group">
+            <a class="block" on:click={closeMenu} href={page_link.href}>
+              {page_link.title}
+            </a>
+          </li>
+        {/each}
+      </ul>
+
+      {#if $page.route.id == "/register"}
+        <a
+          href="/register"
+          on:click={closeMenu}
+          class="relative btn-base block"
+        >
+          <span
+            class="absolute inset-0 rounded-[inherit] bg-gradient-to-t from-pink-100 to-purple -m-1"
+          />
+
+          <p
+            class="bg-dark bg-clip-border absolute inset-0 flex justify-center items-center rounded-[inherit]"
+          >
+            Register
+          </p>
+          <p class="invisible rounded-[inherit]">Register</p>
+        </a>
+      {:else}
+        <a href="/register" on:click={closeMenu} class="btn">Register</a>
+      {/if}
+    </nav>
+  </div>
+  <div
     class="min-h-screen fixed inset-0 overflow-hidden opacity-30"
     style="
     background: radial-gradient(ellipse at bottom, #150E28 0%, #090a0f 100%);
@@ -185,7 +227,7 @@
     </div>
     <div class="header-top" />
     <header
-      class="transition-default hover:opacity-100 hover:backdrop-blur-[1px] py-6 border-b border-white/[5%]"
+      class="transition-default hover:opacity-100 hover:backdrop-blur-[1px] z-10 py-6 border-b border-white/[5%]"
     >
       <div class="max-w-6xl container flex items-center justify-between">
         <a href="/">
@@ -195,44 +237,7 @@
         </a>
 
         <button class="md:hidden" on:click={openMenu}><HamburgerIcon /></button>
-        <div
-          class="menu bg-dark min-h-screen fixed inset-0 flex items-center z-20 px-10 text-5xl"
-        >
-          <button
-            class="menu_close_btn border rounded-full w-6 h-6 p-8 hover:p-10 hover:rotate-90 transition-default flex items-center justify-center absolute top-0 right-0 m-12"
-            on:click={closeMenu}
-          >
-            &times;
-          </button>
-          <nav class="space-y-6">
-            <ul class="capitalize space-y-4 w-full">
-              {#each page_links as page_link}
-                <li class="group">
-                  <a class="block" on:click={closeMenu} href={page_link.href}>
-                    {page_link.title}
-                  </a>
-                </li>
-              {/each}
-            </ul>
 
-            {#if $page.route.id == "/register"}
-              <a href="/register" class="relative btn-base block">
-                <span
-                  class="absolute inset-0 rounded-[inherit] bg-gradient-to-t from-pink-100 to-purple -m-1"
-                />
-
-                <p
-                  class="bg-dark bg-clip-border absolute inset-0 flex justify-center items-center rounded-[inherit]"
-                >
-                  Register
-                </p>
-                <p class="invisible rounded-[inherit]">Register</p>
-              </a>
-            {:else}
-              <a href="/register" class="btn">Register</a>
-            {/if}
-          </nav>
-        </div>
         <nav
           class="header-nav max-md:hidden flex gap-10 items-center transition-default"
         >

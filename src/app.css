@@ -121,7 +121,7 @@
   }
 
   .menu a {
-    @apply hover:text-7xl hover:pl-6 transition-default;
+    @apply hover:text-lg hover:pl-6 transition-default;
   }
 
   .menu li:hover a::after {
