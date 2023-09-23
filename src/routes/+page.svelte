@@ -129,7 +129,10 @@
 </svelte:head>
 
 <main class="divide-y divide-white/[18%]">
-  <section id="hero" class="max-lg:text-center pb-0">
+  <section id="hero" class="max-lg:text-center pb-0 relative">
+    <div
+      class="bg-purple opacity-60 -top-10 left-[500px] absolute w-[200px] rounded-full blur-3xl aspect-square"
+    />
     <div
       class="relative max-w-6xl container lg:grid grid-cols-2 items-center space-y-4"
     >
@@ -141,11 +144,31 @@
         </h2>
       </div>
       <div
-        class="space-y-8"
+        class="space-y-8 relative"
         data-animate
         data-animation-direction="up"
         data-animation-delay=".2"
       >
+        <div class="pointer-events-none absolute inset-0">
+          <img
+            src="/images/stars/star.png"
+            alt="star"
+            class="not-sr-only -top-8 left-0 absolute animate-pulse scale-75"
+            loading="lazy"
+          />
+          <img
+            src="/images/stars/star.png"
+            alt="star"
+            loading="lazy"
+            class="not-sr-only -top-12 right-0 absolute animate-pulse scale-50"
+          />
+          <img
+            src="/images/stars/star.png"
+            alt="star"
+            loading="lazy"
+            class="not-sr-only bottom-0 right-32 z-10 absolute animate-pulse scale-50"
+          />
+        </div>
         <div class="space-y-4">
           <h1 class="title-1">
             getlinked Tech
@@ -187,7 +210,15 @@
     <div
       class="max-w-6xl container grid lg:grid-cols-2 max-lg:gap-6 max-lg:text-center items-center"
     >
-      <div class="flex justify-center">
+      <div class="relative flex justify-center">
+        <div class="pointer-events-none absolute inset-0">
+          <img
+            src="/images/stars/star2.png"
+            alt="star"
+            loading="lazy"
+            class="not-sr-only top-12 absolute animate-pulse scale-50"
+          />
+        </div>
         <img
           data-animate
           data-animation="pop"
@@ -195,7 +226,15 @@
           alt="infographic showing different elements and how they link together to form an idea"
         />
       </div>
-      <div class="space-y-4">
+      <div class="relative space-y-4">
+        <div class="pointer-events-none absolute inset-0">
+          <img
+            src="/images/stars/star2.png"
+            alt="star"
+            loading="lazy"
+            class="not-sr-only top-8 right-0 absolute animate-pulse scale-50"
+          />
+        </div>
         <h2 class="heading-1">
           <span data-animate-text data-animation-direction="left">
             Introduction to getlinked
@@ -225,7 +264,23 @@
     <div
       class="max-w-6xl container grid lg:grid-cols-2 max-lg:text-center items-center"
     >
-      <div class="space-y-4">
+      <div class="relative space-y-4">
+        <div class="pointer-events-none absolute inset-0">
+          <div class="opacity-50">
+            <img
+              src="/images/stars/star.png"
+              alt="star"
+              loading="lazy"
+              class="not-sr-only top-0 left-64 absolute animate-pulse scale-75"
+            />
+          </div>
+          <img
+            src="/images/stars/star.png"
+            alt="star"
+            loading="lazy"
+            class="not-sr-only -bottom-4 -right-14 absolute animate-pulse scale-75"
+          />
+        </div>
         <h2 class="heading-1">
           <span data-animate-text> Rules and </span>
           <span
@@ -259,7 +314,31 @@
     <div
       class="max-w-6xl container lg:grid grid-cols-2 max-lg:text-center items-center"
     >
-      <div>
+      <div class="relative">
+        <div class="pointer-events-none absolute inset-0">
+          <img
+            src="/images/stars/star2.png"
+            alt="star"
+            loading="lazy"
+            class="not-sr-only -top-20 left-20 absolute animate-pulse scale-50"
+          />
+          <div
+            class="opacity-30 absolute inset-0 flex items-center justify-center"
+          >
+            <img
+              src="/images/stars/star.png"
+              alt="star"
+              loading="lazy"
+              class="not-sr-only animate-pulse scale-50"
+            />
+          </div>
+          <img
+            src="/images/stars/star2.png"
+            alt="star"
+            loading="lazy"
+            class="not-sr-only -bottom-4 right-6 absolute animate-pulse scale-50"
+          />
+        </div>
         <img
           data-animate
           data-animation="pop"
@@ -310,7 +389,15 @@
   </section>
   <section id="faqs">
     <div class="max-w-6xl container lg:grid grid-cols-2">
-      <div class="space-y-12">
+      <div class="relative space-y-12">
+        <div class="pointer-events-none absolute inset-0">
+          <img
+            src="/images/stars/star2.png"
+            alt="star"
+            loading="lazy"
+            class="not-sr-only top-0 -left-8 absolute animate-pulse scale-75"
+          />
+        </div>
         <div class="space-y-4 max-lg:text-center">
           <h2 class="heading-1">
             <span data-animate-text> Frequently Asked </span>

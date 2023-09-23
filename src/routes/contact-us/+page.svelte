@@ -77,9 +77,16 @@
     <div class="relative space-y-6 max-lg:hidden">
       <div class="pointer-events-none absolute inset-0">
         <img
-          src="/images/stars/star.png"
+          src="/images/stars/star2.png"
           alt="star"
-          class="not-sr-only animate-pulse scale-50"
+          loading="lazy"
+          class="not-sr-only -top-24 absolute animate-pulse scale-50"
+        />
+        <img
+          src="/images/stars/star2.png"
+          alt="star"
+          loading="lazy"
+          class="not-sr-only bottom-0 -right-3 z-10 absolute animate-pulse scale-50"
         />
       </div>
       <h1
@@ -149,8 +156,22 @@
     <div
       data-animate
       data-animation-direction="down"
-      class="space-y-8 max-w-lg container lg:bg-white/[3%] px-2 lg:px-10 py-6 lg:py-20 rounded-md lg:shadow-md backdrop-filter backdrop-blur-sm border border-white/[1%]"
+      class="relative space-y-8 max-w-lg container lg:bg-white/[3%] px-2 lg:px-10 py-6 lg:py-20 rounded-md lg:shadow-md backdrop-filter backdrop-blur-sm border border-white/[1%]"
     >
+      <div class="pointer-events-none absolute inset-0">
+        <img
+          src="/images/stars/star.png"
+          loading="lazy"
+          alt="star"
+          class="not-sr-only -top-12 right-0 absolute animate-pulse scale-75"
+        />
+        <img
+          src="/images/stars/star.png"
+          loading="lazy"
+          alt="star"
+          class="not-sr-only bottom-0 -right-12 z-10 absolute animate-pulse scale-50"
+        />
+      </div>
       {#if success}
         <div
           class="flex-1 h-full space-y-2 text-center flex items-center flex-col justify-center"

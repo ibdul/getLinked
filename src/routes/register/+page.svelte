@@ -161,7 +161,28 @@
       data-animate
       data-animation="pop"
       data-animation-is-not-scroll-triggered
+      class="relative"
     >
+      <div class="pointer-events-none absolute inset-0">
+        <img
+          src="/images/stars/star2.png"
+          loading="lazy"
+          alt="star"
+          class="not-sr-only -top-12 left-0 absolute animate-pulse scale-50"
+        />
+        <img
+          src="/images/stars/star2.png"
+          loading="lazy"
+          alt="star"
+          class="not-sr-only bottom-0 -right-12 z-10 absolute animate-pulse scale-50"
+        />
+        <img
+          src="/images/stars/star.png"
+          loading="lazy"
+          alt="star"
+          class="not-sr-only bottom-0 -left-12 z-10 absolute animate-pulse scale-50"
+        />
+      </div>
       <img
         class="max-lg:mx-auto max-lg:w-[80%]"
         src="/images/3d-graphic-designer-showing-thumbs-up.webp"
@@ -173,8 +194,22 @@
       data-animation-direction="down"
       data-animation-delay=".5"
       data-animation-is-not-scroll-triggered
-      class="space-y-8 max-w-lg container lg:bg-white/[3%] px-2 lg:px-10 py-6 lg:py-20 rounded-md lg:shadow-md backdrop-filter backdrop-blur-sm border border-white/[1%]"
+      class="relative space-y-8 max-w-lg container lg:bg-white/[3%] px-2 lg:px-10 py-6 lg:py-20 rounded-md lg:shadow-md backdrop-filter backdrop-blur-sm border border-white/[1%]"
     >
+      <div class="pointer-events-none absolute inset-0">
+        <img
+          src="/images/stars/star.png"
+          alt="star"
+          loading="lazy"
+          class="not-sr-only top-0 right-16 absolute animate-pulse scale-75"
+        />
+        <img
+          src="/images/stars/star.png"
+          alt="star"
+          loading="lazy"
+          class="not-sr-only -bottom-4 right-12 absolute animate-pulse scale-50"
+        />
+      </div>
       <div class="space-y-6">
         <h2 class="heading-1 text-pink max-lg:hidden">Register</h2>
         <p class="lg:text-sm max-lg:text-center">
