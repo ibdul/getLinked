@@ -6,6 +6,9 @@
   // import StarrySky from "$lib/components/StarrySky.svelte";
   // import Blob from "../lib/components/Blob.svelte";
   import AnimatedStarField from "../lib/components/AnimatedStarField.svelte";
+
+  import ProgressBar from "@prgm/sveltekit-progress-bar/ProgressBar.svelte";
+
   import { gsap } from "gsap";
   import { onMount } from "svelte";
   import { onNavigate } from "$app/navigation";
@@ -109,6 +112,8 @@
 {#if showCursor}
   <Cursor />
 {/if}
+
+<ProgressBar class="text-pink-200 z-40" />
 
 <div
   class="layout_wrapper bg-dark text-white selection:bg-pink selection:text-dark"
