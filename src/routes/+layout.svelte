@@ -45,6 +45,9 @@
       document.startViewTransition(async () => {
         resolve();
         await navigation.complete;
+        if ($page.route.id !== "/") {
+          currentSection = undefined;
+        }
       });
     });
   });
