@@ -20,6 +20,14 @@
     { title: "FAQs", href: "/#faqs" },
     { title: "contact", href: "/contact-us" },
   ];
+  const sections = page_links
+    .filter((link) => {
+      return link.href.indexOf("#") !== -1;
+    })
+    .map((link) => {
+      return `#${link.title.toLowerCase()}`;
+    });
+  let currentSection;
 
   let showCursor = true;
 
@@ -94,18 +102,54 @@
     //sticky header
     let header_top = document.querySelector(".header-top");
     let header = document.querySelector("header");
-    var observer = new IntersectionObserver(
+    let sticky_header_classes =
+      "sticky top-0 !py-2 backdrop-blur-[2px] z-10 bg-dark/60 header-sticky".split(
+        " "
+      );
+    var header_observer = new IntersectionObserver(
       (entries) => {
         // no intersection
         if (entries[0].intersectionRatio === 0)
-          header.classList.add("sticky_header");
+          header.classList.add(...sticky_header_classes);
         // fully intersects
         else if (entries[0].intersectionRatio == 1)
-          header.classList.remove("sticky_header");
+          header.classList.remove(...sticky_header_classes);
       },
       { threshold: [0, 1] }
     );
-    observer.observe(header_top);
+    header_observer.observe(header_top);
+
+    let scrollY = 0;
+    const handleScroll = () => {
+      if (window.scrollY < scrollY) {
+        header.classList.remove("!py-2");
+      } else {
+        if (header) {
+          header.classList.add("!py-2");
+        }
+      }
+      if ($page.route.id == "/") {
+        scrollY = window.scrollY;
+        for (let i = sections.length - 1; i >= 0; i--) {
+          const section = document.querySelector(sections[i]);
+          if (
+            scrollY < section.offsetTop ||
+            scrollY > section.offsetTop + section.scrollHeight
+          ) {
+            if (currentSection == sections[i]) {
+              currentSection = undefined;
+            }
+            continue;
+          }
+          currentSection = sections[i];
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Call handleScroll once onMount to set the initial currentSection value
+    handleScroll();
   });
 </script>
 
@@ -116,7 +160,7 @@
 <ProgressBar class="text-pink-200 z-40" />
 
 <div
-  class="layout_wrapper bg-dark text-white selection:bg-pink selection:text-dark"
+  class="layout_wrapper overflow-clip bg-dark text-white selection:bg-pink selection:text-dark"
 >
   <div
     class="min-h-screen fixed inset-0 overflow-hidden opacity-30"
@@ -140,18 +184,19 @@
       <!-- <StarrySky /> -->
     </div>
     <div class="header-top" />
-    <header>
-      <div class="max-w-6xl container flex items-center justify-between py-6">
+    <header
+      class="transition-default hover:opacity-100 hover:backdrop-blur-[1px] py-6 border-b border-white/[5%]"
+    >
+      <div class="max-w-6xl container flex items-center justify-between">
         <a href="/">
           <h2 class="text-[26px] heading-1">
             get<span class="text-pink">linked</span>
           </h2>
         </a>
-        <!-- BASEN ON DRIBBBLE SHOT: https://dribbble.com/shots/2209627-UI8-Nav -->
 
         <button class="md:hidden" on:click={openMenu}><HamburgerIcon /></button>
         <div
-          class="menu bg-dark min-h-screen fixed inset-0 flex items-center z-10 px-10 text-5xl"
+          class="menu bg-dark min-h-screen fixed inset-0 flex items-center z-20 px-10 text-5xl"
         >
           <button
             class="menu_close_btn border rounded-full w-6 h-6 p-8 hover:p-10 hover:rotate-90 transition-default flex items-center justify-center absolute top-0 right-0 m-12"
@@ -188,15 +233,19 @@
             {/if}
           </nav>
         </div>
-        <nav class="max-md:hidden flex gap-10 items-center">
-          <ul class="capitalize flex items-center gap-8">
+        <nav
+          class="header-nav max-md:hidden flex gap-10 items-center transition-default"
+        >
+          <ul class="capitalize flex items-center gap-8 transition-default">
             {#each page_links as page_link}
               <li>
                 <a
                   href={page_link.href}
-                  class={$page.route.id == page_link.href
-                    ? "bg-gradient-to-r font-bold from-purple via-pink-100 to-pink-100 text-transparent bg-clip-text "
-                    : ""}
+                  class="transition-default {currentSection ===
+                    `#${page_link.title.toLowerCase()}` ||
+                  $page.route.id == page_link.href
+                    ? 'bg-gradient-to-r font-bold from-purple via-pink-100 to-pink-100 text-transparent bg-clip-text '
+                    : ''}"
                 >
                   {page_link.title}
                 </a>
@@ -231,5 +280,9 @@
   .menu {
     transform: translateY(100%);
     clip-path: circle(0% at 100% 0);
+  }
+  :global(header.header-sticky nav.header-nav),
+  :global(header.header-sticky nav.header-nav ul) {
+    gap: 12px;
   }
 </style>
