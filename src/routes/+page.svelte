@@ -217,13 +217,13 @@
 
   <section id="overview">
     <div
-      class="max-w-6xl container grid lg:grid-cols-2 max-lg:gap-6 max-lg:text-center items-center"
+      class="max-w-6xl container grid lg:grid-cols-2 max-lg:gap-16 max-lg:text-center items-center"
     >
       <div class="relative flex justify-center">
         <img
           src="/images/arrow.png"
           alt="arrow"
-          class="not-sr-only -bottom-16 right-24 absolute scale-75"
+          class="not-sr-only -bottom-16 right-42 md:right-24 absolute scale-75"
           loading="lazy"
         />
         <div class="pointer-events-none absolute inset-0">
