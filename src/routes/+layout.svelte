@@ -10,6 +10,7 @@
   import ProgressBar from "@prgm/sveltekit-progress-bar/ProgressBar.svelte";
 
   import { gsap } from "gsap";
+  import ScrollTrigger from "gsap/dist/ScrollTrigger";
   import { onMount } from "svelte";
   import { onNavigate } from "$app/navigation";
   import { page } from "$app/stores";
@@ -34,6 +35,7 @@
   let showCursor = true;
 
   onNavigate((navigation) => {
+    ScrollTrigger.killAll();
     showCursor = false;
     setTimeout(() => {
       showCursor = true;
