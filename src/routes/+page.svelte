@@ -406,7 +406,7 @@
           data-animation-delay=".2"
           data-animation-direction="left"
         >
-          <a href="#" class="btn">Read More</a>
+          <p><a href="#" class="btn">Read More</a></p>
         </div>
       </div>
     </div>
