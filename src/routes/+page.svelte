@@ -260,7 +260,13 @@
       </div>
     </div>
   </section>
-  <section>
+  <section class="relative">
+    <div
+      class="bg-purple opacity-20 top-[10%] left-[300px] absolute w-[500px] rounded-full blur-3xl aspect-square"
+    />
+    <div
+      class="bg-purple opacity-20 bottom-[10%] -right-[100px] absolute w-[300px] rounded-full blur-3xl aspect-square"
+    />
     <div
       class="max-w-6xl container grid lg:grid-cols-2 max-lg:text-center items-center"
     >
@@ -310,7 +316,13 @@
       </div>
     </div>
   </section>
-  <section>
+  <section class="relative">
+    <div
+      class="bg-purple opacity-20 top-[10%] left-[100px] absolute w-[500px] rounded-full blur-3xl aspect-square"
+    />
+    <div
+      class="bg-purple opacity-20 bottom-[10%] -right-[100px] absolute w-[300px] rounded-full blur-3xl aspect-square"
+    />
     <div
       class="max-w-6xl container lg:grid grid-cols-2 max-lg:text-center items-center"
     >
@@ -483,7 +495,13 @@
       <Timeline data={timeline} />
     </div>
   </section>
-  <section>
+  <section class="relative">
+    <div
+      class="bg-purple opacity-20 top-[10%] left-[100px] absolute w-[500px] rounded-full blur-3xl aspect-square"
+    />
+    <div
+      class="bg-purple opacity-20 bottom-[10%] -right-[100px] absolute w-[300px] rounded-full blur-3xl aspect-square"
+    />
     <div class="max-w-6xl container lg:grid grid-cols-2 max-lg:space-y-12">
       <div class="text-center lg:hidden">
         <h2 class="heading-1">
@@ -581,7 +599,13 @@
       </div>
     </div>
   </section>
-  <section>
+  <section class="relative">
+    <div
+      class="bg-purple opacity-20 top-[10%] left-[50px] absolute w-[300px] rounded-full blur-3xl aspect-square"
+    />
+    <div
+      class="bg-purple opacity-20 bottom-[10%] -right-[80px] absolute w-[300px] rounded-full blur-3xl aspect-square"
+    />
     <div class="max-w-6xl container text-center space-y-8">
       <div class="max-w-lg container space-y-4">
         <h2
@@ -636,7 +660,10 @@
       </div>
     </div>
   </section>
-  <section>
+  <section class="relative">
+    <div
+      class="bg-purple opacity-20 bottom-0 -left-[100px] absolute w-[300px] rounded-full blur-3xl aspect-square"
+    />
     <div class="max-w-6xl container lg:grid grid-cols-2 max-lg:text-center">
       <div class="space-y-8">
         <div class="space-y-2">

@@ -149,7 +149,15 @@
   <title>getLinked - Register for our hackathon</title>
 </svelte:head>
 
-<main class="page_wrapper min-h-[80vh] flex items-center justify-center">
+<main
+  class="page_wrapper min-h-[80vh] flex items-center justify-center relative"
+>
+  <div
+    class="bg-purple opacity-20 top-0 -left-[200px] absolute w-[500px] rounded-full blur-3xl aspect-square"
+  />
+  <div
+    class="bg-purple opacity-20 -bottom-[10%] -right-[100px] absolute w-[300px] rounded-full blur-3xl aspect-square"
+  />
   <div
     class="max-w-6xl container lg:grid grid-cols-2 space-y-4 py-10 lg:py-20 items-center"
   >
