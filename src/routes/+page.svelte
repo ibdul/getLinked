@@ -170,7 +170,13 @@
           />
         </div>
         <div class="space-y-4">
-          <h1 class="title-1">
+          <h1 class="title-1 relative">
+            <img
+              src="/images/bulb.png"
+              alt="bulb"
+              class="not-sr-only -top-16 right-24 absolute scale-75"
+              loading="lazy"
+            />
             getlinked Tech
             <br />
             Hackathon <span class="text-pink">1.0</span><span
@@ -211,6 +217,12 @@
       class="max-w-6xl container grid lg:grid-cols-2 max-lg:gap-6 max-lg:text-center items-center"
     >
       <div class="relative flex justify-center">
+        <img
+          src="/images/arrow.png"
+          alt="arrow"
+          class="not-sr-only -bottom-16 right-24 absolute scale-75"
+          loading="lazy"
+        />
         <div class="pointer-events-none absolute inset-0">
           <img
             src="/images/stars/star2.png"
