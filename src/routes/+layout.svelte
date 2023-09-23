@@ -9,6 +9,14 @@
   import { gsap } from "gsap";
   import { onMount } from "svelte";
   import { onNavigate } from "$app/navigation";
+  import { page } from "$app/stores";
+
+  const page_links = [
+    { title: "timeline", href: "/#timeline" },
+    { title: "overview", href: "/#overview" },
+    { title: "FAQs", href: "/#faqs" },
+    { title: "contact", href: "/contact-us" },
+  ];
 
   onNavigate((navigation) => {
     if (!document.startViewTransition) return;
@@ -47,7 +55,7 @@
       .set(".menu", { y: 0 })
       .to(".menu", { clipPath: "circle(150% at 100% 0)" })
       .fromTo(
-        ".menu a",
+        ".menu nav a",
         { y: "50px", x: 0, opacity: 0 },
         {
           y: "0px",
@@ -72,6 +80,22 @@
       .to(".menu a", {
         x: 0,
       });
+
+    //sticky header
+    let header_top = document.querySelector(".header-top");
+    let header = document.querySelector("header");
+    var observer = new IntersectionObserver(
+      (entries) => {
+        // no intersection
+        if (entries[0].intersectionRatio === 0)
+          header.classList.add("sticky_header");
+        // fully intersects
+        else if (entries[0].intersectionRatio == 1)
+          header.classList.remove("sticky_header");
+      },
+      { threshold: [0, 1] }
+    );
+    observer.observe(header_top);
   });
 </script>
 
@@ -101,6 +125,7 @@
     <div class="z-10 -space-y-20">
       <!-- <StarrySky /> -->
     </div>
+    <div class="header-top" />
     <header>
       <div class="max-w-6xl container flex items-center justify-between py-6">
         <a href="/">
@@ -120,35 +145,67 @@
           >
             &times;
           </button>
-          <ul class="space-y-4 w-full">
-            <li class="group">
-              <a class="block" on:click={closeMenu} href="/#timeline">
-                Timeline
+          <nav class="space-y-6">
+            <ul class="capitalize space-y-4 w-full">
+              {#each page_links as page_link}
+                <li class="group">
+                  <a class="block" on:click={closeMenu} href={page_link.href}>
+                    {page_link.title}
+                  </a>
+                </li>
+              {/each}
+            </ul>
+
+            {#if $page.route.id == "/register"}
+              <a href="/register" class="relative btn-base block">
+                <span
+                  class="absolute inset-0 rounded-[inherit] bg-gradient-to-t from-pink-100 to-purple -m-1"
+                />
+
+                <p
+                  class="bg-dark bg-clip-border absolute inset-0 flex justify-center items-center rounded-[inherit]"
+                >
+                  Register
+                </p>
+                <p class="invisible rounded-[inherit]">Register</p>
               </a>
-            </li>
-            <li class="group">
-              <a class="block" on:click={closeMenu} href="/#overview"
-                >Overview</a
-              >
-            </li>
-            <li class="group">
-              <a class="block" on:click={closeMenu} href="/#faqs">FAQs</a>
-            </li>
-            <li class="group">
-              <a class="block" on:click={closeMenu} href="/contact-us"
-                >Contact</a
-              >
-            </li>
-          </ul>
+            {:else}
+              <a href="/register" class="btn">Register</a>
+            {/if}
+          </nav>
         </div>
         <nav class="max-md:hidden flex gap-10 items-center">
-          <ul class="flex items-center gap-8">
-            <li><a href="/#timeline">Timeline</a></li>
-            <li><a href="/#overview">Overview</a></li>
-            <li><a href="/#faqs">FAQs</a></li>
-            <li><a href="/contact-us">Contact</a></li>
+          <ul class="capitalize flex items-center gap-8">
+            {#each page_links as page_link}
+              <li>
+                <a
+                  href={page_link.href}
+                  class={$page.route.id == page_link.href
+                    ? "bg-gradient-to-r font-bold from-purple via-pink-100 to-pink-100 text-transparent bg-clip-text "
+                    : ""}
+                >
+                  {page_link.title}
+                </a>
+              </li>
+            {/each}
           </ul>
-          <a href="/register" class="btn"> Register </a>
+
+          {#if $page.route.id == "/register"}
+            <a href="/register" class="relative btn-base">
+              <span
+                class="absolute inset-0 rounded-[inherit] bg-gradient-to-t from-pink-100 to-purple -m-1"
+              />
+
+              <p
+                class="bg-dark bg-clip-border absolute inset-0 flex justify-center items-center rounded-[inherit]"
+              >
+                Register
+              </p>
+              <p class="invisible rounded-[inherit]">Register</p>
+            </a>
+          {:else}
+            <a href="/register" class="btn">Register</a>
+          {/if}
         </nav>
       </div>
     </header>
