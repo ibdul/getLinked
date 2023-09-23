@@ -129,89 +129,92 @@
 </svelte:head>
 
 <main class="divide-y divide-white/[18%]">
-  <section id="hero" class="max-lg:text-center pb-0 relative">
+  <div class="relative">
     <div
       class="bg-purple opacity-60 -top-10 left-[500px] absolute w-[200px] rounded-full blur-3xl aspect-square"
     />
-    <div
-      class="relative max-w-6xl container lg:grid grid-cols-2 items-center space-y-4"
-    >
-      <div class="lg:absolute -top-10 right-0">
-        <h2
-          class="font-bold text-[20px] lg:text-[24px] italic lg:px-4 relative"
-        >
-          <Typewriter message="Igniting a Revolution in HR Innovation" />
-        </h2>
-      </div>
+    <section id="hero" class="max-lg:text-center pb-0 relative">
       <div
-        class="space-y-8 relative"
-        data-animate
-        data-animation-direction="up"
-        data-animation-delay=".2"
+        class="relative max-w-6xl container lg:grid grid-cols-2 items-center space-y-4"
       >
-        <div class="pointer-events-none absolute inset-0">
-          <img
-            src="/images/stars/star.png"
-            alt="star"
-            class="not-sr-only -top-8 left-0 absolute animate-pulse scale-75"
-            loading="lazy"
-          />
-          <img
-            src="/images/stars/star.png"
-            alt="star"
-            loading="lazy"
-            class="not-sr-only -top-12 right-0 absolute animate-pulse scale-50"
-          />
-          <img
-            src="/images/stars/star.png"
-            alt="star"
-            loading="lazy"
-            class="not-sr-only bottom-0 right-32 z-10 absolute animate-pulse scale-50"
-          />
+        <div class="lg:absolute -top-10 right-0">
+          <h2
+            class="font-bold text-[20px] lg:text-[24px] italic lg:px-4 relative"
+          >
+            <Typewriter message="Igniting a Revolution in HR Innovation" />
+          </h2>
         </div>
-        <div class="space-y-4">
-          <h1 class="title-1 relative">
+        <div
+          class="space-y-8 relative"
+          data-animate
+          data-animation-direction="up"
+          data-animation-delay=".2"
+        >
+          <div class="pointer-events-none absolute inset-0">
             <img
-              src="/images/bulb.png"
-              alt="bulb"
-              class="not-sr-only -top-16 right-24 absolute scale-75"
+              src="/images/stars/star.png"
+              alt="star"
+              class="not-sr-only -top-8 left-0 absolute animate-pulse scale-75"
               loading="lazy"
             />
-            getlinked Tech
-            <br />
-            Hackathon <span class="text-pink">1.0</span><span
-              class="text-[30px]">🔗🔥</span
-            >
-          </h1>
-          <p class="max-w-md max-lg:container max-lg:max-w-lg">
-            Participate in getlinked tech Hackathon 2023 stand a chance to win a
-            Big prize
+            <img
+              src="/images/stars/star.png"
+              alt="star"
+              loading="lazy"
+              class="not-sr-only -top-12 right-0 absolute animate-pulse scale-50"
+            />
+            <img
+              src="/images/stars/star.png"
+              alt="star"
+              loading="lazy"
+              class="not-sr-only bottom-0 right-32 z-10 absolute animate-pulse scale-50"
+            />
+          </div>
+          <div class="space-y-4">
+            <h1 class="title-1 relative">
+              <img
+                src="/images/bulb.png"
+                alt="bulb"
+                class="not-sr-only -top-16 right-24 absolute scale-75"
+                loading="lazy"
+              />
+              getlinked Tech
+              <br />
+              Hackathon <span class="text-pink">1.0</span><span
+                class="text-[30px]">🔗🔥</span
+              >
+            </h1>
+            <p class="max-w-md max-lg:container max-lg:max-w-lg">
+              Participate in getlinked tech Hackathon 2023 stand a chance to win
+              a Big prize
+            </p>
+          </div>
+          <p>
+            <a href="/register" class="btn">Register</a>
           </p>
-        </div>
-        <p>
-          <a href="/register" class="btn">Register</a>
-        </p>
 
-        <Countdown />
+          <Countdown />
+        </div>
+        <div
+          class="max-xl:lg:min-h-[80vh] relative flex items-center"
+          data-animate
+          data-animation-delay=".6"
+        >
+          <img
+            class="absolute bottom-0 inset-x-0"
+            src="/images/man-wearing-smart-glasses-touching-virtual-screen.webp"
+            alt="man wearing smart glasses touching virtual screen"
+          />
+          <img
+            src="/images/hero-stary-field.webp"
+            alt="hero stary field"
+            class="animate-pulse"
+          />
+        </div>
       </div>
-      <div
-        class="max-xl:lg:min-h-[80vh] relative flex items-center"
-        data-animate
-        data-animation-delay=".6"
-      >
-        <img
-          class="absolute bottom-0 inset-x-0"
-          src="/images/man-wearing-smart-glasses-touching-virtual-screen.webp"
-          alt="man wearing smart glasses touching virtual screen"
-        />
-        <img
-          src="/images/hero-stary-field.webp"
-          alt="hero stary field"
-          class="animate-pulse"
-        />
-      </div>
-    </div>
-  </section>
+    </section>
+  </div>
+
   <section id="overview">
     <div
       class="max-w-6xl container grid lg:grid-cols-2 max-lg:gap-6 max-lg:text-center items-center"
